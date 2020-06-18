@@ -1,0 +1,23 @@
+[
+  {
+    "item": "H.R.6172 - To amend the Foreign Intelligence Surveillance Act of 1978 to prohibit the production of certain ...",
+    "Description": "USA FREEDOM Reauthorization Act",
+    "result": "Passed by a margin of 80 votes (simple majority required to pass)",
+    "date": "May 28, 2020 at 3:10 p.m. EDT",
+    "votedYes": 284,
+    "votedNo": 122,
+    "azRepsYes": {
+      "Ruben Gallego": "AZ-7",
+      "Raúl M. Grijalva": "AZ-3",
+      "Ann Kirkpatrick": "AZ-2",
+      "Tom O'Halleran": "AZ-1",
+      "Greg Stanton": "AZ-9"
+    },
+    "azRepsNo": {
+      "Andy Biggs": "AZ-7",
+      "Paul Gosar": "AZ-3",
+      "Debbie Lesko": "AZ-2",
+      "David Schweikert": "AZ-1"
+    }
+  }
+]

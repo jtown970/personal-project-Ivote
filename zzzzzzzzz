@@ -1,0 +1,35 @@
+DROP TABLE IF EXISTS user_votes;
+DROP TABLE IF EXISTS house_votes;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS users;
+
+
+create table users (
+    user_id serial primary key,
+    user_name varchar(20),
+    password text,
+    location varchar(2)
+);
+
+create table items (
+    item_id serial primary key,
+    item_name text,
+    description text
+);
+
+create table user_votes (
+    user_votes_id serial primary key,
+    users_id int references users(user_id),
+    item_id int references items(item_id),
+    vote_yes boolean
+);
+
+
+create table house_votes (
+    house_votes_id serial primary key,
+    item_id int references items(item_id),
+    rep_name varchar(100),
+    location varchar(10),
+    voted_yes boolean, 
+    passed boolean
+); 
