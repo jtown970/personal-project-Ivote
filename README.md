@@ -1,68 +1,202 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# I vote app #
 
-## Available Scripts
+  ## over view
+  - The purpose of I vote is to see how you would vote compared to your representatives
+  - I vote solves the problem of not knowing one how a rep is really voting and how your view line up
+  - Target market for this app is US voters 
 
-In the project directory, you can run:
+  ## MVP
+  - users can vote on items that are being voted on by there representatives
+  - users can see what their representatives are voting on and how they vote
+  - users can update location
+  - users can delete a vote 
+  
 
-### `yarn start`
+# Front-end
+  ## components 
+  - app.js will have a getUser to see if the users session is authed
+  - auth.js will handle logging in and out of a user
+  - graph.js show user votes all need to learn chart.js or d3
+  - dash.js will show user info, what they can vote on, extra and how other users vote
+  - UserVotes.js will let users vote on items 
+  - houseVotes.js will show how the house is voting on items  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  ## routes 
+  - '/' will be the login page
+  - '/dash' brings you to dash.js
+  - '/UserVotes' takes users to votingBooth.js
+  - '/houseVotes' takes users to house.js
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# Back-end
+  ## db
 
-### `yarn test`
+  - users table
+    - id
+    - user_name
+    - password
+    - location
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - user_votes table 
+    - id 
+    - users_id ref users(id)
+    - item
+    - yes
+    - no
 
-### `yarn build`
+  - house table
+    - id
+    - rep_name
+    - location
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - house_votes table
+    - id
+    - reps_name ref house(id)
+    - item
+    - passed
+    - failed
+    - yes
+    - no
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+  - all_votes table 
+    - id
+    - item
+    - join sum of users_votes
+    - join sum of house_votes 
+    - users_yes ref sum of users_votes(yes)
+    - house_yes ref sum of house_votes(yes)
+    - users_no ref sum of users_votes(no)
+    - house_no ref sum of house_votes(no)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
 
-### `yarn eject`
+  ## end points 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  - GET '/api/user/:id'  
+    receive: req.params {
+              id: 1
+              user_name: 'j'
+              location: 'AZ'
+              } 
+    send: status(200)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - GET '/api/userVotes/:id'  
+    receive: req.params{
+              id: 1
+              user_name: 'j'
+              location: 'AZ'
+              item: 'item name'
+              yes: true
+              no false
+    }
+       send: {
+              user_name: 'j'
+              location: 'AZ'
+              item: 'item name'
+              yes: true
+              no false
+        }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  - GET '/api/houseRep/:id'  
+        receive: req.params{
+              id: 1
+              rep_name: 't'
+              location: 'AZ'
+              item: 'item name'
+              yes: true
+              no false
+    }
+       send: {
+              user_name: 't'
+              location: 'AZ'
+              item: 'item name'
+              yes: true
+              no false
+        }
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+  - POST '/api/auth/register'  
+    receive: req.body {
+              username: 'name here' 
+              password: 'password here'
+              } 
+    send: {
+      user_id: 1
+      username: 'name here',
+    }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - POST '/api/auth/login'  
+    receive: req.body {
+              username: 'name here' 
+              password: 'password here'
+              } 
+    send: {
+      username: 'name here',
+      user_id: 1
+    }
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - POST '/api/userVote'  
+    receive: req.body {
+              location: 'AZ'
+              item: 'item name'
+              yes: true 
+              no: false
+              } 
+      send: {
+              id: 1
+              location: 'AZ'
+              item: 'item name'
+              yes: true 
+              no: false
+      }
 
-### Code Splitting
+  - PUT /api/user/:id
+    receive: req.params {
+      location: 'CO'
+    }
+    send status(200)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  - DELETE '/api/userVote/:id'
+      receive: req.params {
+      id: '1'
+    }
 
-### Analyzing the Bundle Size
+    send: status(200)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    
+# Points Plan 
 
-### Making a Progressive Web App
+## CORE
+  - Responsive Design (10-15)
+  - React Redux 
+    - Must have store and reducer. 
+    - Can read from store (mapStateToProps) (5pts)
+    - Can write to store (dispatch) (5pts)
+  - React Hooks
+    - Uses react Hooks on at least 2 components. (5)
+  - Authentication
+    - Functioning authentication (10pts)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Additional Technologies
+  - You can earn a maximum of 30 points in this category.
 
-### Advanced Configuration
+  - ChartJS
+    - Application displays  relevant data from database (5pts)
+    - Users can view and dynamically generate data for a chart (5pts)
+  - Sass or less 
+    - Over 50% of project wide styling was done in Sass/Less format, with all major features used(variables, mixins, and nesting/inheritance). (10pts)
+  - puppeteer (10) 
+  - if not puppeteer use sockets (make a chat section)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+  ## HOSTING
+  - Hosted (10)
+  - Registered under unique domain name (5)  
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Presentation
+ - hopefully not null max(10)
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+  
