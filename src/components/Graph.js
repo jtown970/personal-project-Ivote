@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Graph extends Component {
+ class Graph extends Component {
   render() {
     return (
       <div>
@@ -9,3 +9,4 @@ export default class Graph extends Component {
     )
   }
 }
+export default Graph
