@@ -2,17 +2,31 @@ import axios from 'axios'
 
 const initialState = {
   user: null,
-  isLoggedIn: false
+  isLoggedIn: false,
+  registering: false,
+  user_name: '',
+  password: '',
+  location: ''
+
 }
 
+const REGISTER_USER = 'REGISTER_USER'
 const  LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
 const GET_USER = 'GET_USER'
 
+
+export function registerUser(user){
+  return {
+    type: REGISTER_USER,
+    payload: user
+  }
+}
+
 export function loginUser(user){
   return {
     type: LOGIN_USER,
-    payload: initialState
+    payload: user
   }
 }
 
@@ -34,11 +48,13 @@ export function getUser(){
 
 export default function (state = initialState, action){
   switch(action.type){
+    case REGISTER_USER:
+      return {...state, user:action.payload, registering:true, isLoggedIn: true}
     case LOGIN_USER:
       return {...state, user: action.payload, isLoggedIn: true}
     case LOGOUT_USER:
       return initialState
-      
+
     default:
       return initialState
   }
