@@ -20,7 +20,7 @@ import {connect} from 'react-redux'
         </section>
         Nav
       </div>
-    )
+    )  
 
   } else {
     return "Welcome to Ivote login or register"

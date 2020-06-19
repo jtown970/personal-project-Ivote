@@ -3,7 +3,7 @@ import './App.css';
 import routes from './routes'
 import Nav from './components/Nav'
 
-function App(props) {
+function App() {
   return (
     <div className="App">
       <Nav/>
