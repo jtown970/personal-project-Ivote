@@ -1,29 +1,21 @@
-// import axios from 'axios'
+const initialState = {
+  houseVotes: []
+}
 
+const GET_HOUSE = "GET_HOUSE";
 
-// const initialState = {
-//   rep_name: '',
-//   location: '',
-//   voted_yes: null,
-//   passed: null
-// }
+export function getHouse(house) {
+  return {
+      type: GET_HOUSE,
+      payload: house
+  }
+}
 
-// const  GET_HOUSE_VOTES = 'GET_HOUSE_VOTES'
-
-// export function getHouse (house) {
-//   // const allHouseVotes = axios.get(`/house/votes`)
-//   return {
-//     type: GET_HOUSE_VOTES,
-//     payload: house
-//   }
-// }
-
-
-// export default function (state = initialState, action){
-//   switch(action.type){
-//       case GET_HOUSE_VOTES:
-//           return {...state, rep_name: action.payload.rep_name}
-//       default:
-//           return state
-//   }
-// }
+export default function (state = initialState, action){
+  switch(action.type){
+      case GET_HOUSE:
+          return {...state, houseVotes: action.payload}
+      default:
+          return state
+  }
+}
