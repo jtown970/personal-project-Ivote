@@ -3,3 +3,5 @@
 
 select house_votes_id, rep_name, location, item_name, passed, voted_yes from house_votes
 join items on house_votes.house_votes_id = items.item_id;
+
+select * from house_votes

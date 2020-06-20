@@ -41,6 +41,7 @@ app.post(`/house/vote`, houseCtrl.addHouseVote)
 
 // items end points
 app.post(`/items/item`, itemCtrl.addItem)
+app.get(`/items`, itemCtrl.allItems)
 
 massive({
   connectionString: CONNECTION_STRING,

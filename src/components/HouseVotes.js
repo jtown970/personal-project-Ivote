@@ -21,7 +21,7 @@ class HouseVotes extends Component {
 
     render(){
         const houseMap = this.props.house.houseVotes.map( elem => {
-            return <div key={`photoId_${elem.house_votes_id}`}>
+            return <div key={`houseVotesId_${elem.house_votes_id}`}>
                 <span className='rep-name'>{elem.rep_name}</span>
                 <span>{elem.location}</span>
             </div>
