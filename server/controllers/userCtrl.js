@@ -35,7 +35,7 @@ module.exports = {
 
   sumIdVotesYes: async (req, res) => {
     const db = req.app.get('db')
-    const {user_id} = req.params
+    const {user_id} = req.session.user
 
     const idVotes = await db.sum_user_votes_yes_id([user_id])
     
@@ -49,9 +49,9 @@ module.exports = {
 
   getUserVotes: async (req, res) => {
     const db = req.app.get('db')
-    const {user_votes_id} = req.params
+    const {users_id} = req.session.user.user_id
 
-    const userVote = await db.user_votes_by_id([user_votes_id])
+    const userVote = await db.user_votes_by_id([users_id])
 
     if(userVote[0]){
       res.status(200).send(userVote[0])
