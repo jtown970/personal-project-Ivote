@@ -31,6 +31,8 @@ app.get(`/auth/user`, authCtrl.getUser)
 // user votes end points
 app.get(`/users/votes/:id`, userCtrl.getUserVotes)
 app.get(`/users/votes`, userCtrl.getAllUserVotes)
+app.get(`/users/sum/votes/yes`, userCtrl.sumAllUserVotesYes)
+app.get(`/users/sum/votes/no`, userCtrl.sumAllUserVotesNo)
 app.post(`/users/vote`, userCtrl.addUserVote)
 app.delete(`/users/vote/:id`, userCtrl.deleteUserVote)
 

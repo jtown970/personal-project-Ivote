@@ -8,6 +8,7 @@ const GET_USER_VOTES = 'GET_USER_VOTES'
 const USER_VOTES_BY_ID = 'USER_VOTES_BY_ID'
 const ADD_USER_VOTES = 'ADD_USER_VOTES'
 const DELETE_USER_VOTES = 'DELETE_USER_VOTES'
+const SUM_USER_VOTES = 'SUM_USER_VOTES'
 
 export function allUserVotes() {
   const userVotes = axios.get(`/user/votes`)
@@ -28,6 +29,14 @@ export function addUserVote(userVotes) {
   return {
     type: ADD_USER_VOTES,
     payload: userVotes
+  }
+}
+
+export function sumUserVote() {
+  const sum = axios.get(`/users/sum/votes`)
+  return {
+    type: SUM_USER_VOTES,
+    payload: sum
   }
 }
 

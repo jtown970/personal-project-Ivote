@@ -11,6 +11,28 @@ module.exports = {
     }
   },
 
+  sumAllUserVotesYes: async (req, res) => {
+    const db = req.app.get('db')
+
+    try{
+      const sumYes = await db.sum_user_votes_yes()
+      res.status(200).send(sumYes)
+    } catch {
+      res.status(404).send('could not get sum for user votes')
+    }
+  },
+
+  sumAllUserVotesNo: async (req, res) => {
+    const db = req.app.get('db')
+
+    try{
+      const sumNo = await db.sum_user_votes_no()
+      res.status(200).send(sumNo)
+    } catch {
+      res.status(404).send('could not get sum for user votes')
+    }
+  },
+
   getUserVotes: async (req, res) => {
     const db = req.app.get('db')
     const {user_votes_id} = req.params
