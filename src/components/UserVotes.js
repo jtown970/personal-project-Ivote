@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {allUserVotes} from '../redux/userReducer';
+import {allUserVotes, sumUserVoteYes, sumUserVoteNo} from '../redux/userReducer';
 
 class UserVotes extends Component {
   // constructor(){
@@ -14,13 +14,15 @@ class UserVotes extends Component {
   // }
 
   componentDidMount(){
+    this.props.sumUserVoteYes();
+    this.props.sumUserVoteNo();
     axios.get(`/users/votes`).then(res => {
       this.props.allUserVotes(res.data)
     })
 }
 
-  userById(){
-    
+  sumYesVotes(){
+    this.props.sumUserVoteYes();
   }
   render() {
 
@@ -30,9 +32,8 @@ class UserVotes extends Component {
           <span>{elem.location}</span>
           {/* <span>{elem.vote_yes}</span> */}
       </div>
-      
     })
-    console.log(userMap);
+    // console.log(userMap);
     return (
       <div>
         user votes
@@ -43,6 +44,6 @@ class UserVotes extends Component {
 }
 
 const mapStateToProps = state => state;
-// const mapDispatchToProps = {allUserVotes}
+const mapDispatchToProps = {allUserVotes, sumUserVoteYes, sumUserVoteNo}
 
-export default connect(mapStateToProps, {allUserVotes})(UserVotes);
+export default connect(mapStateToProps, mapDispatchToProps)(UserVotes);

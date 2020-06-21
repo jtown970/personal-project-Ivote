@@ -61,6 +61,18 @@ export default function (state = initialState, action){
   switch(action.type){
     case GET_USER_VOTES:
       return {...state, votes: action.payload}
+    case SUM_USER_VOTES_YES + "_PENDING":
+      return state
+    case SUM_USER_VOTES_YES + "_FULFILLED":
+      return {...state, sumYes: action.payload.data}
+    case SUM_USER_VOTES_YES + "_REJECTED":
+      return state
+    case SUM_USER_VOTES_NO + "_PENDING":
+      return state
+    case SUM_USER_VOTES_NO + "_FULFILLED":
+      return {...state, sumNo: action.payload.data}
+    case SUM_USER_VOTES_NO + "_REJECTED":
+      return state
     default:
       return state
   }

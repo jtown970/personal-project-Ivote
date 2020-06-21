@@ -33,6 +33,14 @@ module.exports = {
     }
   },
 
+  sumIdVotesYes: async (req, res) => {
+    const db = req.app.get('db')
+
+    const idVotes = await db.sum_user_votes_yes_id([req.session.user.user_id])
+    return res.status(200).send(idVotes)
+
+  },
+
   getUserVotes: async (req, res) => {
     const db = req.app.get('db')
     const {user_votes_id} = req.params
