@@ -35,9 +35,15 @@ module.exports = {
 
   sumIdVotesYes: async (req, res) => {
     const db = req.app.get('db')
+    const {user_id} = req.params
 
-    const idVotes = await db.sum_user_votes_yes_id([req.session.user.user_id])
-    return res.status(200).send(idVotes)
+    const idVotes = await db.sum_user_votes_yes_id([user_id])
+    
+    if(idVotes[0]){
+      res.status(200).send(idVotes)
+    } else {
+      res.status(404).send('could not find user votes by id')
+    }
 
   },
 

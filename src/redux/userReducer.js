@@ -10,6 +10,7 @@ const ADD_USER_VOTES = 'ADD_USER_VOTES'
 const DELETE_USER_VOTES = 'DELETE_USER_VOTES'
 const SUM_USER_VOTES_YES = 'SUM_USER_VOTES_YES'
 const SUM_USER_VOTES_NO = 'SUM_USER_VOTES_NO'
+const SUM_USER_VOTES_YES_ID = 'SUM_USER_VOTES_YES_ID'
 
 export function allUserVotes(userVotes) {
   return {
@@ -48,6 +49,13 @@ export function sumUserVoteNo() {
   }
 }
 
+export function sumUserVotesYesId(userVotes) {
+  return {
+    type: SUM_USER_VOTES_YES_ID,
+    payload: userVotes
+  }
+}
+
 export function deleteUserVote(userVotes) {
   return {
     type: DELETE_USER_VOTES,
@@ -73,6 +81,8 @@ export default function (state = initialState, action){
       return {...state, sumNo: action.payload.data}
     case SUM_USER_VOTES_NO + "_REJECTED":
       return state
+    case SUM_USER_VOTES_YES_ID:
+      return {...state }
     default:
       return state
   }
