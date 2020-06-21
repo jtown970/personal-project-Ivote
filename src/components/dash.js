@@ -6,7 +6,8 @@ export default class dash extends Component {
   constructor(){
     super()
     this.state = {
-      items: []
+      items: [],
+      isVoting: false
     }
     this.allItems = this.allItems.bind(this)
   }
@@ -24,11 +25,31 @@ export default class dash extends Component {
     })
   }
 
+  isVoting(){
+    this.setState({
+      isVoting: !this.state.isVoting
+    })
+  }
+
   render() {
     console.log(this.state.items)
-    let itemsMap = this.state.items((elem) => {
+    let itemsMap = this.state.items.map((elem) => {
       return <div key={elem.item_id}>
-        <span>{elem.item_name}</span>
+        <div>{elem.item_name}</div>
+        <div>{elem.description}</div>
+        {!this.state.isVoting ? (
+          <button onDoubleClick={() => this.isVoting()} >view</button>
+        ) : (
+          <div>
+            <p>{elem.full_description}</p>
+            <span>YES:</span>
+              <input type="checkbox"/>
+            <span>NO:</span>
+              <input type="checkbox"/>
+            <p> hello testing toggle</p>
+            <button onClick={() => this.isVoting()}>Close</button>
+          </div>
+        )}
       </div>
     })
     return (
@@ -36,6 +57,7 @@ export default class dash extends Component {
         dash Component
         <HouseVotes/>
     <div>{this.props.rep_name}</div>
+        {itemsMap}
       </div>
     )
   }

@@ -1,2 +1,2 @@
-insert into items (item_name)
-values ( $1) returning * ;
+insert into items (item_name, description )
+values ( $1, $2) returning * ;

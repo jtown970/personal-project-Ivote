@@ -51,10 +51,11 @@ create table users (
     location varchar(2)
 );
 
-create table item (
+create table items (
     item_id serial primary key,
     item_name text
     description text
+    full_description text
 );
 
 create table user_votes (
