@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
  function Nav(props) {
   if(props.location.pathname !== '/'){
-    console.log(props)
+    // console.log(props)
     return (
       <div className="navigation">
         <section className="nav-list" >

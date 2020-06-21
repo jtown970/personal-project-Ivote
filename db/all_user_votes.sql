@@ -10,3 +10,4 @@
 --think this will work
 select user_votes_id, users_id, item_name, vote_yes from user_votes
 join items on user_votes.user_votes_id = items.item_id;
+
