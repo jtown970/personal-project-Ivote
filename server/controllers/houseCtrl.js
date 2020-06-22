@@ -33,5 +33,28 @@ module.exports = {
 
     res.status(200).send(newVote[0])
   },
+
+  sumYesHouseVotes: async (req, res) => {
+    const db = req.app.get('db')
+
+    try{
+      const yesVotes = await db.sum_house_votes_yes()
+      res.status(200).send(yesVotes)
+
+    } catch {
+      res.status(404).send('could not find sum of yes votes for the house')
+    }
+  },
+
+  sumNoHouseVotes: async (req, res) => {
+    const db = req.app.get('db')
+
+    try{
+      const noVotes = await db.sum_house_votes_no()
+      res.status(200).send(noVotes)
+    } catch {
+      res.status(404).send('could not find no votes for the house')
+    }
+  }
   
 }
