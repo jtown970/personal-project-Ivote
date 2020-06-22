@@ -44,7 +44,19 @@ module.exports = {
     } else {
       res.status(404).send('could not find user votes by id')
     }
+  },
 
+  sumIdVotesNo: async (req, res) => {
+    const db = req.app.get('db')
+    const {user_id} = req.session.user
+
+    const idVotesNo = await db.sum_user_votes_no_id([user_id])
+    
+    if(idVotesNo[0]){
+      res.status(200).send(idVotesNo)
+    } else {
+      res.status(404).send('could not find user votes by id')
+    }
   },
 
   getUserVotes: async (req, res) => {

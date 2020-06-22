@@ -11,6 +11,7 @@ const DELETE_USER_VOTES = 'DELETE_USER_VOTES'
 const SUM_USER_VOTES_YES = 'SUM_USER_VOTES_YES'
 const SUM_USER_VOTES_NO = 'SUM_USER_VOTES_NO'
 const SUM_USER_VOTES_YES_ID = 'SUM_USER_VOTES_YES_ID'
+const SUM_USER_VOTES_NO_ID = 'SUM_USER_VOTES_NO_ID'
 
 export function allUserVotes(userVotes) {
   return {
@@ -49,12 +50,22 @@ export function sumUserVoteNo() {
   }
 }
 
-export function sumUserVotesYesId(userVotes) {
+export function sumUserVotesYesId() {
+  const sumYesVoteById = axios.get(`/user/sum/vote/:id`)
   return {
     type: SUM_USER_VOTES_YES_ID,
-    payload: userVotes
+    payload: sumYesVoteById
   }
 }
+
+export function sumUserVotesNoId() {
+  const sumNoVoteById = axios.get(`/h/:id`)
+  return {
+    type: SUM_USER_VOTES_NO_ID,
+    payload: sumNoVoteById
+  }
+}
+
 
 export function deleteUserVote(userVotes) {
   return {
@@ -67,22 +78,37 @@ export function deleteUserVote(userVotes) {
 
 export default function (state = initialState, action){
   switch(action.type){
+    // all user votes
     case GET_USER_VOTES:
       return {...state, votes: action.payload}
+      // all yes user votes
     case SUM_USER_VOTES_YES + "_PENDING":
       return state
     case SUM_USER_VOTES_YES + "_FULFILLED":
       return {...state, sumYes: action.payload.data}
     case SUM_USER_VOTES_YES + "_REJECTED":
       return state
+      // all user no votes
     case SUM_USER_VOTES_NO + "_PENDING":
       return state
     case SUM_USER_VOTES_NO + "_FULFILLED":
       return {...state, sumNo: action.payload.data}
     case SUM_USER_VOTES_NO + "_REJECTED":
       return state
-    case SUM_USER_VOTES_YES_ID:
-      return {...state }
+      // yes votes by id
+    case SUM_USER_VOTES_YES_ID + "_PENDING":
+      return state 
+    case SUM_USER_VOTES_YES_ID + "_FULFILLED":
+      return {...state, sumYesVoteById: action.payload.data}
+    case SUM_USER_VOTES_YES_ID + "_REJECTED":
+      return state 
+      // no votes by id
+    case SUM_USER_VOTES_NO_ID + "_PENDING":
+      return state 
+    case SUM_USER_VOTES_NO_ID + "_FULFILLED":
+      return {...state, sumNoVoteById: action.payload.data}
+    case SUM_USER_VOTES_NO_ID + "_REJECTED":
+      return state 
     default:
       return state
   }

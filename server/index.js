@@ -34,6 +34,7 @@ app.get(`/users/votes`, userCtrl.getAllUserVotes)
 app.get(`/users/sum/votes/yes`, userCtrl.sumAllUserVotesYes)
 app.get(`/users/sum/votes/no`, userCtrl.sumAllUserVotesNo)
 app.get(`/user/sum/vote/:id`, userCtrl.sumIdVotesYes)
+app.get(`/h/:id`, userCtrl.sumIdVotesNo)
 app.post(`/users/vote`, userCtrl.addUserVote)
 app.delete(`/users/vote/:id`, userCtrl.deleteUserVote)
 
