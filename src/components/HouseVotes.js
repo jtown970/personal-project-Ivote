@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {getHouse} from '../redux/houseReducer';
+import {getHouse, sumAllHouseYes, sumAllHouseNo} from '../redux/houseReducer';
 
 
 class HouseVotes extends Component {
@@ -14,6 +14,8 @@ class HouseVotes extends Component {
     }
 
     componentDidMount(){
+        this.props.sumAllHouseYes()
+        this.props.sumAllHouseNo()
         axios.get('/house/votes').then( res => {
             this.props.getHouse(res.data)
         })
@@ -35,8 +37,8 @@ class HouseVotes extends Component {
 }
 
 const mapStateToProps = state => state;
-
-export default connect(mapStateToProps, {getHouse})(HouseVotes);
+const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo}
+export default connect(mapStateToProps, mapDispatchToProps)(HouseVotes);
 
 
 
