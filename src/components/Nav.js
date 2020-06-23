@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
  function Nav(props) {
   if(props.location.pathname !== '/'){
-    // console.log(props)
+    console.log(props.user.user_name)
     return (
       <div className="navigation">
         <section className="nav-list" >
@@ -13,6 +13,7 @@ import {connect} from 'react-redux'
           </div>
           <div className="nav-logout-btn">
            <p className="user-name" >{props.user.user_name}</p>
+           
             <button className="logout-btn">
               <Link className="nav-btn" to="/">Logout</Link>
             </button>

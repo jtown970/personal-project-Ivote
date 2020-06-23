@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Bar, Line, Pie} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 import {getHouse, sumAllHouseYes, sumAllHouseNo} from '../redux/houseReducer';
+import {allUserVotes, sumUserVoteYes, sumUserVoteNo, sumUserVotesYesId, sumUserVotesNoId} from '../redux/userReducer';
 import axios from 'axios';
 
 
@@ -10,20 +11,24 @@ import axios from 'axios';
     super()
     this.state = {
       chartData1: {},
-      chartData2: {}
+      chartData2: {},
+      chartData3: {},
+      chartData4: {}
     }
   }
 
   componentWillMount(){
     this.getCartDataYesVotes();
     this.getCartDataNoVotes();
+    this.getChartAllUserYesVotes();
+    this.getChartAllUserNoVotes();
   }
 
   getCartDataYesVotes (){
     let yes = [];
     axios.get(`/house/sum/yes/votes`)
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       for(const dataObj of res.data){
         yes.push(parseInt(dataObj.count))
         console.log(dataObj.count)
@@ -44,7 +49,7 @@ import axios from 'axios';
         }
       });
     })
-    console.log(yes);
+    // console.log(yes);
   }
 
 
@@ -52,7 +57,7 @@ import axios from 'axios';
     let no = [];
     axios.get(`/house/sum/no/votes`)
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       for(const dataObj of res.data){
         no.push(parseInt(dataObj.count))
         console.log(dataObj.count)
@@ -73,42 +78,165 @@ import axios from 'axios';
         }
       });
     })
-    console.log(no);
+    // console.log(no);
+  }
+
+  getChartAllUserYesVotes (){
+    let userYes = [];
+    axios.get(`/users/sum/votes/yes`)
+    .then(res => {
+      console.log(res.data)
+      for(const dataObj of res.data){
+        userYes.push(parseInt(dataObj.count))
+        console.log(dataObj.count)
+      }
+      this.setState({
+        chartData3:{
+          labels: ['all yes user Votes'],
+          datasets:[
+            {
+              label:'user votes',
+              data: userYes,
+              backgroundColor:[
+                // 'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+              ]
+            }
+          ]
+        }
+      });
+    })
+    console.log(userYes);
+  }
+
+  getChartAllUserNoVotes (){
+    let no = [];
+    axios.get(`/users/sum/votes/no`)
+    .then(res => {
+      // console.log(res.data)
+      for(const dataObj of res.data){
+        no.push(parseInt(dataObj.count))
+        console.log(dataObj.count)
+      }
+      this.setState({
+        chartData4:{
+          labels: ['User no Votes'],
+          datasets:[
+            {
+              label:'user votes',
+              data: no,
+              backgroundColor:[
+                // 'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+              ]
+            }
+          ]
+        }
+      });
+    })
+    // console.log(no);
   }
  
   render() {
     
     return (
       <div style={{position: 'relative', width: 300, height:550}}>
-        <Bar
-          data={this.state.chartData1}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
-              fontSize:25
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
-
-        <Bar
-          data={this.state.chartData2}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
-              fontSize:25
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
+          {/* house votes yes */}
+        <div className="all-house-yes-chart yes-chart">
+          <Bar
+            data={this.state.chartData1}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities In '+this.props.location,
+                fontSize:25,
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          />
+        </div>
+          {/* house votes no */}
+        <div className="all-house-no-chart no-char">
+          <Bar
+            data={this.state.chartData2}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities In '+this.props.location,
+                fontSize:25,
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          />
+        </div>
+          {/* users vote yes */}
+        <div className="all-users-yes-chart yes-chart">
+          <Bar
+            data={this.state.chartData3}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities In '+this.props.location,
+                fontSize:25,
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          />
+        </div>
+          {/* user votes no */}
+        <div className="all-users-no-chart no-chart">
+          <Bar
+            data={this.state.chartData4}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities In '+this.props.location,
+                fontSize:25,
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          />
+        </div>
           graph Component
       </div>
     )
@@ -116,5 +244,7 @@ import axios from 'axios';
 }
 
 const mapStateToProps = state => state;
-const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo}
+const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo, allUserVotes, sumUserVoteYes, sumUserVoteNo, sumUserVotesYesId, sumUserVotesNoId }
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(Graph);
