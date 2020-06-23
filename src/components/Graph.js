@@ -280,107 +280,123 @@ import axios from 'axios';
                   }}
                   />
               </div>
+              <button onClick={() => this.seeHouseVotes()}>close</button>
             </div>
           )}
-        {/* end of see house votes */}
+        {/* end of see house votes button */}
           
  
-          {/* users vote yes */}
-        <div className="all-users-yes-chart yes-chart">
-          <Bar
-            data={this.state.chartData3}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
+          {/* user votes button  */}
+          {!this.state.seeAllUserVotes ? (
+          <button onClick={() => this.seeAllUserVotes()}>See all user Votes</button>
+            ) : (
+              <div className="all-users-charts">
+                <div className="all-users-yes-chart yes-chart">
+                  <Bar
+                    data={this.state.chartData3}
+                    options={{
+                      title:{
+                        display:this.props.displayTitle,
+                        text:'Largest Cities In '+this.props.location,
+                        fontSize:25,
+                        scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero: true
+                              }
+                          }]
                       }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-        </div>
-          {/* user votes no */}
-        <div className="all-users-no-chart no-chart">
-          <Bar
-            data={this.state.chartData4}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
+                      },
+                      legend:{
+                        display:this.props.displayLegend,
+                        position:this.props.legendPosition
                       }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-        </div>
-        {/* user session chart yes votes */}
-        <div className="all-users-session-yes-chart no-chart">
-          <Bar
-            data={this.state.chartData5}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
+                    }}
+                  />
+                </div>
+                <div className="all-users-no-chart no-chart">
+                 {/* all user votes no */}
+                 <Bar
+                   data={this.state.chartData4}
+                   options={{
+                     title:{
+                       display:this.props.displayTitle,
+                       text:'Largest Cities In '+this.props.location,
+                       fontSize:25,
+                       scales: {
+                         yAxes: [{
+                             ticks: {
+                                 beginAtZero: true
+                             }
+                         }]
+                     }
+                     },
+                     legend:{
+                       display:this.props.displayLegend,
+                       position:this.props.legendPosition
+                     }
+                   }}
+                 />
+               </div>
+               <button onClick={() => this.seeAllUserVotes()}>close</button>
+             </div>
+            )}
+
+            {!this.state.seeSessionVotes ? (
+              <button onClick={() => this.seeSessionVotes()}>See your votes</button>
+            ) : (
+              <div className="all-session-votes">
+                {/* user session chart yes votes */}
+                <div className="all-users-session-yes-chart no-chart">
+                  <Bar
+                    data={this.state.chartData5}
+                    options={{
+                      title:{
+                        display:this.props.displayTitle,
+                        text:'Largest Cities In '+this.props.location,
+                        fontSize:25,
+                        scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero: true
+                              }
+                          }]
                       }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-        </div>
-          {/* user session chart no votes */}
-          <div className="all-users-session-no-chart no-chart">
-          <Bar
-            data={this.state.chartData6}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
+                      },
+                      legend:{
+                        display:this.props.displayLegend,
+                        position:this.props.legendPosition
                       }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-        </div>
+                    }}
+                  />
+                </div>
+                  {/* user session chart no votes */}
+                  <div className="all-users-session-no-chart no-chart">
+                  <Bar
+                    data={this.state.chartData6}
+                    options={{
+                      title:{
+                        display:this.props.displayTitle,
+                        text:'Largest Cities In '+this.props.location,
+                        fontSize:25,
+                        scales: {
+                          yAxes: [{
+                              ticks: {
+                                  beginAtZero: true
+                              }
+                          }]
+                      }
+                      },
+                      legend:{
+                        display:this.props.displayLegend,
+                        position:this.props.legendPosition
+                      }
+                    }}
+                  />
+                </div>
+                <button onClick={() => this.seeSessionVotes()}>close</button>
+              </div>
+            )}
           graph Component
           {/* <Dash/> */}
       </div>

@@ -73,31 +73,7 @@ export default class dash extends Component {
       <div>
 
         <Graph/>
-          {!this.state.seeHouseVotes ? (
-            <button onClick={() => this.seeHouseVotes()}>See all house Votes</button>
-            ) : (
-            <Bar
-            data={this.state.props.chartData1}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
-                      }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-          )}
+ 
 
 
 
