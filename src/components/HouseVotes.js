@@ -8,8 +8,8 @@ class HouseVotes extends Component {
     constructor(){
         super();
         this.state = {
-            rep_name: '',
-            location: ''
+            // rep_name: '',
+            // location: ''
         }
     }
 
@@ -28,6 +28,8 @@ class HouseVotes extends Component {
                 <span>{elem.location}</span>
             </div>
         })
+        console.log(houseMap);
+        
         return (
             <div className='houseMapping'>
                 {houseMap}
