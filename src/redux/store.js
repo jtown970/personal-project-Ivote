@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 
 const rootReducer = combineReducers({
-    user: authReducer,
+    auth: authReducer,
     userVotes: userReducer,
     house: houseReducer
 })

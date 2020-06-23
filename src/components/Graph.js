@@ -13,7 +13,9 @@ import axios from 'axios';
       chartData1: {},
       chartData2: {},
       chartData3: {},
-      chartData4: {}
+      chartData4: {},
+      chartData5: {},
+      chartData6: {}
     }
   }
 
@@ -22,6 +24,8 @@ import axios from 'axios';
     this.getCartDataNoVotes();
     this.getChartAllUserYesVotes();
     this.getChartAllUserNoVotes();
+    this.getChartAllUserYesVotesSession();
+    this.getChartAllUserNoVotesSession();
   }
 
   getCartDataYesVotes (){
@@ -31,7 +35,7 @@ import axios from 'axios';
       // console.log(res.data)
       for(const dataObj of res.data){
         yes.push(parseInt(dataObj.count))
-        console.log(dataObj.count)
+        // console.log(dataObj.count)
       }
       this.setState({
         chartData1:{
@@ -60,7 +64,7 @@ import axios from 'axios';
       // console.log(res.data)
       for(const dataObj of res.data){
         no.push(parseInt(dataObj.count))
-        console.log(dataObj.count)
+        // console.log(dataObj.count)
       }
       this.setState({
         chartData2:{
@@ -85,10 +89,10 @@ import axios from 'axios';
     let userYes = [];
     axios.get(`/users/sum/votes/yes`)
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       for(const dataObj of res.data){
         userYes.push(parseInt(dataObj.count))
-        console.log(dataObj.count)
+        // console.log(dataObj.count)
       }
       this.setState({
         chartData3:{
@@ -106,7 +110,7 @@ import axios from 'axios';
         }
       });
     })
-    console.log(userYes);
+    // console.log(userYes);
   }
 
   getChartAllUserNoVotes (){
@@ -116,11 +120,11 @@ import axios from 'axios';
       // console.log(res.data)
       for(const dataObj of res.data){
         no.push(parseInt(dataObj.count))
-        console.log(dataObj.count)
+        // console.log(dataObj.count)
       }
       this.setState({
         chartData4:{
-          labels: ['User no Votes'],
+          labels: ['all user no Votes'],
           datasets:[
             {
               label:'user votes',
@@ -136,7 +140,66 @@ import axios from 'axios';
     })
     // console.log(no);
   }
- 
+
+  // get user votes by session
+
+  getChartAllUserYesVotesSession (){
+    let userYes = [];
+    axios.get(`/user/sum/vote/:id`)
+    .then(res => {
+      console.log(res)
+      for(const dataObj of res.data){
+        userYes.push(parseInt(dataObj.count))
+        console.log(dataObj.count)
+      }
+      this.setState({
+        chartData5:{
+          labels: ['Your yes Votes'],
+          datasets:[
+            {
+              label:'yes votes',
+              data: userYes,
+              backgroundColor:[
+                // 'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+              ]
+            }
+          ]
+        }
+      });
+    })
+    console.log(userYes);
+  }
+
+  // session no votes
+  getChartAllUserNoVotesSession (){
+    let no = [];
+    axios.get(`/h/:id`)
+    .then(res => {
+      // console.log(res.data)
+      for(const dataObj of res.data){
+        no.push(parseInt(dataObj.count))
+        // console.log(dataObj.count)
+      }
+      this.setState({
+        chartData6:{
+          labels: ['your no Votes'],
+          datasets:[
+            {
+              label:'your no votes',
+              data: no,
+              backgroundColor:[
+                // 'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+              ]
+            }
+          ]
+        }
+      });
+    })
+    // console.log(no);
+  }
+
   render() {
     
     return (
@@ -217,6 +280,54 @@ import axios from 'axios';
         <div className="all-users-no-chart no-chart">
           <Bar
             data={this.state.chartData4}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities In '+this.props.location,
+                fontSize:25,
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          />
+        </div>
+        {/* user session chart yes votes */}
+        <div className="all-users-session-yes-chart no-chart">
+          <Bar
+            data={this.state.chartData5}
+            options={{
+              title:{
+                display:this.props.displayTitle,
+                text:'Largest Cities In '+this.props.location,
+                fontSize:25,
+                scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+              },
+              legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+              }
+            }}
+          />
+        </div>
+          {/* user session chart no votes */}
+          <div className="all-users-session-no-chart no-chart">
+          <Bar
+            data={this.state.chartData6}
             options={{
               title:{
                 display:this.props.displayTitle,

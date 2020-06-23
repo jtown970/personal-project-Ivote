@@ -3,16 +3,17 @@ import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 
+
  function Nav(props) {
   if(props.location.pathname !== '/'){
-    console.log(props.user.user_name)
+    console.log(props.auth.user_name)
     return (
       <div className="navigation">
         <section className="nav-list" >
           <div className="user">
           </div>
           <div className="nav-logout-btn">
-           <p className="user-name" >{props.user.user_name}</p>
+           <p className="user-name" >{props.auth.user_name}</p>
            
             <button className="logout-btn">
               <Link className="nav-btn" to="/">Logout</Link>
