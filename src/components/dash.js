@@ -32,7 +32,7 @@ export default class dash extends Component {
   }
 
   render() {
-    console.log(this.state.items)
+    // console.log(this.state.items)
     let itemsMap = this.state.items.map((elem) => {
       return <div key={elem.item_id}>
         <div>{elem.item_name}</div>

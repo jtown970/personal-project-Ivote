@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Bar, Line, Pie} from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 import {getHouse, sumAllHouseYes, sumAllHouseNo} from '../redux/houseReducer';
 import {allUserVotes, sumUserVoteYes, sumUserVoteNo, sumUserVotesYesId, sumUserVotesNoId} from '../redux/userReducer';

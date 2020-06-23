@@ -28,7 +28,7 @@ class HouseVotes extends Component {
                 <span>{elem.location}</span>
             </div>
         })
-        console.log(houseMap);
+        // console.log(houseMap);
         
         return (
             <div className='houseMapping'>
