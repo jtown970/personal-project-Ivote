@@ -171,7 +171,7 @@ import axios from 'axios';
         }
       });
     })
-    console.log(userYes);
+    // console.log(userYes);
   }
 
   // session no votes
@@ -351,7 +351,7 @@ import axios from 'axios';
           />
         </div>
           graph Component
-          
+          <Dash/>
       </div>
     )
   }
