@@ -20,8 +20,6 @@ export default class dash extends Component {
 
   componentDidMount(){
     this.allItems()
-    // this.props.getCartDataYesVotes()
-
   }
 
   allItems(){
@@ -32,13 +30,7 @@ export default class dash extends Component {
       })
     })
   }
-
-  seeHouseVotes(){
-    this.setState({
-      seeHouseVotes: !this.state.seeHouseVotes
-    })
-  }
-
+  
   isVoting(){
     this.setState({
       isVoting: !this.state.isVoting
@@ -65,26 +57,12 @@ export default class dash extends Component {
           </div>
         )}
       </div>
-
     });
-
-
     return (
       <div>
-
         <Graph/>
- 
-
-
-
-        dash Component
-        {/* <HouseVotes/> */}
-    <div>{this.props.rep_name}</div>
         {itemsMap}
-
-
-        <div className="house-voting">
-        </div>
+        dash Component
       </div>
     )
   }
