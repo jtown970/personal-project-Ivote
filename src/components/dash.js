@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import HouseVotes from './HouseVotes'
 import axios from 'axios'
-// import Graph from './Graph'
+import Graph from './Graph'
 import {Bar} from 'react-chartjs-2'
 
 
@@ -72,7 +72,7 @@ export default class dash extends Component {
     return (
       <div>
 
-        {/* <Graph/> */}
+        <Graph/>
           {!this.state.seeHouseVotes ? (
             <button onClick={() => this.seeHouseVotes()}>See all house Votes</button>
             ) : (

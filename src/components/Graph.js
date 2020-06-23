@@ -351,7 +351,7 @@ import axios from 'axios';
           />
         </div>
           graph Component
-          <Dash/>
+          {/* <Dash/> */}
       </div>
     )
   }
