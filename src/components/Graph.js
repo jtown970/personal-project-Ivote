@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Dash from './Dash'
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 import {getHouse, sumAllHouseYes, sumAllHouseNo} from '../redux/houseReducer';
@@ -17,6 +18,8 @@ import axios from 'axios';
       chartData5: {},
       chartData6: {}
     }
+    this.getCartDataYesVotes = this.getCartDataYesVotes.bind(this)
+
   }
 
   componentWillMount(){
@@ -201,7 +204,6 @@ import axios from 'axios';
   }
 
   render() {
-    
     return (
       <div style={{position: 'relative', width: 300, height:550}}>
           {/* house votes yes */}
@@ -349,6 +351,7 @@ import axios from 'axios';
           />
         </div>
           graph Component
+          
       </div>
     )
   }

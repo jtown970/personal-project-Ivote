@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import HouseVotes from './HouseVotes'
 import axios from 'axios'
+import Graph from './Graph'
 
 export default class dash extends Component {
   constructor(){
@@ -54,20 +55,12 @@ export default class dash extends Component {
     })
     return (
       <div>
+        <Graph/>
         dash Component
-        <HouseVotes/>
+        {/* <HouseVotes/> */}
     <div>{this.props.rep_name}</div>
         {itemsMap}
       </div>
     )
   }
 }
-
-
-// return <Link  className="house-voters" key={elem.house_votes_id}>
-//         <div>{elem.rep_name}</div>
-//         <div>{elem.location}</div>
-//         <div>{elem.item_name}</div>
-//         <div>{elem.voted_yes}</div>
-//         <div>{elem.passed}</div>
-//       </Link>
