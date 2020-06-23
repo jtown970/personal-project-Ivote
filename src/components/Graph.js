@@ -16,7 +16,11 @@ import axios from 'axios';
       chartData3: {},
       chartData4: {},
       chartData5: {},
-      chartData6: {}
+      chartData6: {},
+      seeHouseVotes: false,
+      seeAllUserVotes: false,
+      seeSessionVotes: false
+
     }
     this.getCartDataYesVotes = this.getCartDataYesVotes.bind(this)
 
@@ -29,6 +33,24 @@ import axios from 'axios';
     this.getChartAllUserNoVotes();
     this.getChartAllUserYesVotesSession();
     this.getChartAllUserNoVotesSession();
+  }
+
+  seeHouseVotes(){
+    this.setState({
+      seeHouseVotes: !this.state.seeHouseVotes
+    })
+  }
+
+  seeAllUserVotes(){
+    this.setState({
+      seeAllUserVotes: !this.state.seeAllUserVotes
+    })
+  }
+
+  seeSessionVotes(){
+    this.setState({
+      seeSessionVotes: !this.state.seeSessionVotes
+    })
   }
 
   getCartDataYesVotes (){
@@ -164,7 +186,7 @@ import axios from 'axios';
               data: userYes,
               backgroundColor:[
                 // 'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
+                'rgba(87, 41, 145)',
               ]
             }
           ]
@@ -193,7 +215,7 @@ import axios from 'axios';
               data: no,
               backgroundColor:[
                 // 'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
+                'rgba(87, 41, 145)',
               ]
             }
           ]
@@ -206,54 +228,63 @@ import axios from 'axios';
   render() {
     return (
       <div style={{position: 'relative', width: 300, height:550}}>
-          {/* house votes yes */}
-        <div className="all-house-yes-chart yes-chart">
-          <Bar
-            data={this.state.chartData1}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
+          {/* see house votes  */}
+        {!this.state.seeHouseVotes ? (
+          <button onClick={() => this.seeHouseVotes()}>See all house Votes</button>
+            ) : (
+            <div className="house-chart">  
+              <div className="all-house-yes-chart yes-chart">
+                <Bar
+                  data={this.state.chartData1}
+                  options={{
+                    title:{
+                      display:this.props.displayTitle,
+                      text:'Largest Cities In '+this.props.location,
+                      fontSize:25,
+                      scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                    },
+                    legend:{
+                      display:this.props.displayLegend,
+                      position:this.props.legendPosition
+                    }
+                  }}
+                />
+              </div>
+
+              <div className="all-house-no-chart no-char">
+                <Bar
+                  data={this.state.chartData2}
+                  options={{
+                    title:{
+                      display:this.props.displayTitle,
+                      text:'Largest Cities In '+this.props.location,
+                      fontSize:25,
+                      scales: {
+                        yAxes: [{
+                          ticks: {
+                            beginAtZero: true
+                          }
+                        }]
                       }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-        </div>
-          {/* house votes no */}
-        <div className="all-house-no-chart no-char">
-          <Bar
-            data={this.state.chartData2}
-            options={{
-              title:{
-                display:this.props.displayTitle,
-                text:'Largest Cities In '+this.props.location,
-                fontSize:25,
-                scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
-                      }
-                  }]
-              }
-              },
-              legend:{
-                display:this.props.displayLegend,
-                position:this.props.legendPosition
-              }
-            }}
-          />
-        </div>
+                    },
+                    legend:{
+                      display:this.props.displayLegend,
+                      position:this.props.legendPosition
+                    }
+                  }}
+                  />
+              </div>
+            </div>
+          )}
+        {/* end of see house votes */}
+          
+ 
           {/* users vote yes */}
         <div className="all-users-yes-chart yes-chart">
           <Bar
