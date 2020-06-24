@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const initialState = {
-  user: null,
+  user: {},
   isLoggedIn: false,
   registering: false,
   user_name: '',
@@ -52,7 +52,7 @@ export default function (state = initialState, action){
     case REGISTER_USER:
       return {...state, user:action.payload, user_name:action.payload.user_name, location:action.payload.location, isLoggedIn: true}
     case LOGIN_USER:
-      return {...state, user: action.payload, user_name:action.payload.user_name, location:action.payload.location, isLoggedIn: true}
+      return {...state, user: action.payload, isLoggedIn: true}
     case LOGOUT_USER:
       return initialState
     case GET_USER + "_PENDING":
@@ -60,7 +60,7 @@ export default function (state = initialState, action){
     case GET_USER + "_FULFILLED":
         return {...state, user: action.payload.data, isLoggedIn: true}
     case GET_USER + "_REJECTED":
-        return initialState
+        return state
     default:
       return initialState
   }

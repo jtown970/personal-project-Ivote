@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const initialState = {
   votes: [],
-  user_id: 0
+  user_id: 0,
+  loading: false
 }
 
 const GET_USER_VOTES = 'GET_USER_VOTES'
@@ -28,10 +29,12 @@ export function userVotesById(userVotes) {
   }
 }
 
-export function addUserVote(userVotes) {
+export function addUserVote(item_id, users_id, vote_yes) {
+  let data = axios.post(`/users/vote`, {item_id, users_id, vote_yes})
+  .then(res => res.data)
   return {
     type: ADD_USER_VOTES,
-    payload: userVotes
+    payload: data
   }
 }
 
@@ -80,8 +83,13 @@ export function deleteUserVote(userVotes) {
 export default function (state = initialState, action){
   switch(action.type){
     //add votes
-    // case ADD_USER_VOTES:
-    //   return {...state, user_id: action.payload.user_id}
+    case ADD_USER_VOTES + '_PENDING':
+      return { ...state, loading: true }
+    case ADD_USER_VOTES + '_FULFILLED':
+      console.log('hit fulfillled');
+      
+      return { ...state, votes: action.payload, loading: false }
+
     // all user votes
     case GET_USER_VOTES:
       return {...state, votes: action.payload}

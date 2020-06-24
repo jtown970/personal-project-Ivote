@@ -7,7 +7,6 @@ import {Bar} from 'react-chartjs-2'
 import {getUser} from '../redux/authReducer'
 import {addUserVote} from '../redux/userReducer'
 
-
 class Dash extends Component {
   constructor(props){
     super(props)
@@ -17,13 +16,14 @@ class Dash extends Component {
       item_id: null,
       users_id: 0,
       vote_yes: null,
+      castVote: false
     }
     this.allItems = this.allItems.bind(this)
   }
 
   componentDidMount(){
     this.allItems()
-    // this.props.getUser()
+    this.props.getUser()
   }
 
   allItems(){
@@ -42,13 +42,16 @@ class Dash extends Component {
   }
 
   handleCastVote(){
-    const {item_id, users_id, vote_yes} = this.state
-    axios.post(`/users/vote`, {item_id, users_id, vote_yes})
-
+    const {item_id, users_id, vote_yes} = this.state;
+    const {addUserVote} = this.props;
+    addUserVote(item_id, users_id, vote_yes)
+    this.props.getUser()
+    this.setState({
+     castVote: !this.state.castVote
+    })
   }
 
   render() {
-    // console.log(this.props.auth.user.user_id)
     let itemsMap = this.state.items.map((elem) => {
       return <div key={elem.item_id}>
         <div>{elem.item_name}</div>
@@ -63,16 +66,21 @@ class Dash extends Component {
               <input type="checkbox" onChange={() => this.setState({vote_yes: true,users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
             <span>NO:</span>
               <input type="checkbox" onChange={() => this.setState({vote_yes: false, users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
-              <button onClick={() => this.handleCastVote()}>Cast Vote</button>
+              <button 
+              onClick={
+              () => this.handleCastVote()
+              }>Cast Vote</button>
             <p> hello testing toggle</p>
             <button onClick={() => this.isVoting()}>Close</button>
           </div>
         )}
       </div>
     });
+    
     return (
       <div>
         <Graph/>
+
         {itemsMap}
         dash Component
       </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Dash from './Dash'
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux'
+import {getUser} from '../redux/authReducer'
 import {getHouse, sumAllHouseYes, sumAllHouseNo} from '../redux/houseReducer';
 import {allUserVotes, sumUserVoteYes, sumUserVoteNo, sumUserVotesYesId, sumUserVotesNoId} from '../redux/userReducer';
 import axios from 'axios';
@@ -23,16 +24,31 @@ import axios from 'axios';
 
     }
     this.getCartDataYesVotes = this.getCartDataYesVotes.bind(this)
+    this.getChartAllUserYesVotesSession = this.getChartAllUserYesVotesSession.bind(this)
+    this.getChartAllUserNoVotesSession = this.getChartAllUserNoVotesSession.bind(this)
 
   }
 
   componentDidMount(){
+    this.handleChartVotes()
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.userVotes !== this.props.userVotes){
+      this.handleChartVotes()
+      console.log('props have changed');
+      
+    }
+  }
+
+  handleChartVotes(){
     this.getCartDataYesVotes();
     this.getCartDataNoVotes();
     this.getChartAllUserYesVotes();
     this.getChartAllUserNoVotes();
     this.getChartAllUserYesVotesSession();
     this.getChartAllUserNoVotesSession();
+    this.props.getUser()
   }
 
   seeHouseVotes(){
@@ -405,7 +421,7 @@ import axios from 'axios';
 }
 
 const mapStateToProps = state => state;
-const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo, allUserVotes, sumUserVoteYes, sumUserVoteNo, sumUserVotesYesId, sumUserVotesNoId }
+const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo, allUserVotes, sumUserVoteYes, sumUserVoteNo, sumUserVotesYesId, sumUserVotesNoId, getUser }
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Graph);
