@@ -18,7 +18,7 @@ import axios from 'axios';
       chartData4: {},
       chartData5: {},
       chartData6: {},
-      seeHouseVotes: false,
+      seeHouseVotes: false,   
       seeAllUserVotes: false,
       seeSessionVotes: false
 
@@ -299,8 +299,9 @@ import axios from 'axios';
             </div>
           )}
         {/* end of see house votes button */}
+        {/* start of house votes by rep name  */}
           
- 
+        {/* end of house votes by rep name  */}
           {/* user votes button  */}
           {!this.state.seeAllUserVotes ? (
           <button onClick={() => this.seeAllUserVotes()}>See all user Votes</button>

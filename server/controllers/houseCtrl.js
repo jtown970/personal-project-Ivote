@@ -32,15 +32,15 @@ module.exports = {
     const db = req.app.get('db')
     const {house_votes_id} = req.params
 
-    const houseVote = await db.house_vote_by_id([house_votes_id])
+    const hv = await db.house_vote_by_id([house_votes_id])
 
-    if(houseVote[0]){
-      res.status(200).send(houseVote[0])
+    if(hv[0]){
+      res.status(200).send(hv[0])
     } else {
-      
       res.status(404).send('could not find house vote')
     }
   },
+
 
   addHouseVote: async (req, res) => {
     const db = req.app.get('db')

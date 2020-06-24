@@ -8,8 +8,9 @@ class HouseVotes extends Component {
     constructor(){
         super();
         this.state = {
-            // rep_name: '',
-            // location: ''
+            chartData1: {},
+            chartData2: {},
+            seeHouseVotesByMember: false,
         }
     }
 
@@ -20,6 +21,41 @@ class HouseVotes extends Component {
             this.props.getHouse(res.data)
         })
     }
+
+    seeHouseVotes(){
+        this.setState({
+            seeHouseVotesByMember: !this.state.seeHouseVotesByMember
+        })
+      }
+
+    getCartDataYesVotes (){
+    let yes = [];
+    axios.get(`/house/votes/:id`)
+    .then(res => {
+        // console.log(res.data)
+        for(const dataObj of res.data){
+        yes.push(parseInt(dataObj.count))
+        // console.log(dataObj.count)
+        }
+        this.setState({
+        chartData1:{
+            labels: ['House Yes Votes'],
+            datasets:[
+            {
+                label:'House votes',
+                data: yes,
+                backgroundColor:[
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                ]
+            }
+            ]
+        }
+        });
+    })
+    // console.log(yes);
+    }
+
 
     render(){
         const houseMap = this.props.house.houseVotes.map( elem => {
@@ -37,6 +73,7 @@ class HouseVotes extends Component {
         )
     }
 }
+
 
 const mapStateToProps = state => state;
 const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo}
