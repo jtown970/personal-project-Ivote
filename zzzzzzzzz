@@ -33,3 +33,43 @@ create table house_votes (
     voted_yes boolean, 
     passed boolean
 ); 
+
+
+
+
+-- In applications for certain FISA authorized orders to obtain information or conduct surveillance the applicant must certify that the Department of Justice DOJ has received any information that might raise doubts about the application The bill imposes additional requirements on FISA authorized orders targeting a 1 US person or 2 federal elected official or candidate
+
+-- The bill increases criminal penalties for violations related to electronic surveillance conducted under color of law or false statements made to the Foreign Intelligence Surveillance Court FISA court
+
+-- The bill broadens the criteria for when a FISA court decision shall be declassified and requires the declassification review and release of such opinions within 180 days of an opinion being issued
+
+-- The bill broadens the FISA courts authority to appoint an amicus curiae an outside party that assists in consideration of a case and expands such amicis powers such as the power to ask the court to review a decision
+
+-- Each agency that submits applications to the FISA court shall appoint an officer responsible for compliance with FISA requirements' where item_id=1;
+
+-- delete from items 
+-- where item_id = 7;
+
+-- select * from items;
+
+-- select * from user_votes
+select * from users
+-- delete from user_votes
+-- where user_votes_id = 7
+
+-- select sum(vote_yes) from user_votes
+
+-- SELECT count(vote_yes) FROM user_votes
+-- where vote_yes = true
+
+-- select * from users
+
+-- SELECT count(vote_yes) FROM user_votes
+-- where vote_yes = false and users_id = 10;
+
+select * from house_votes
+
+select count(voted_yes) from house_votes
+where voted_yes = false
+
+select * from user_votes

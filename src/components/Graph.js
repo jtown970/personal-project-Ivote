@@ -26,7 +26,7 @@ import axios from 'axios';
 
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.getCartDataYesVotes();
     this.getCartDataNoVotes();
     this.getChartAllUserYesVotes();
