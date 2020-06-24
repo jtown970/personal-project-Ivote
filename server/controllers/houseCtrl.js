@@ -11,6 +11,23 @@ module.exports = {
     }
   },
 
+  HouseVotes4Query: async (req, res) => {
+    const db = req.app.get('db')
+    const {rep_name} = req.query 
+    
+    const findRep = await db.house_votes.find()
+
+    if(rep_name){
+      const filteredHouseVotes = house_votes.filter(rep => {
+        return house_votes.rep_name > +rep
+      })
+      res.status(200).send(filteredHouseVotes)
+    } else {
+      res.status(200).send(findRep)
+    }
+
+  },
+
   getHouseVoteById: async (req, res) => {
     const db = req.app.get('db')
     const {house_votes_id} = req.params

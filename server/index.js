@@ -41,6 +41,7 @@ app.delete(`/users/vote/:id`, userCtrl.deleteUserVote)
 // house votes end points
 app.get(`/house/votes/:id`, houseCtrl.getHouseVoteById)
 app.get(`/house/votes`, houseCtrl.getAllHouseVotes)
+app.get(`/house/vote/sort`, houseCtrl.HouseVotes4Query)
 app.get(`/house/sum/no/votes`, houseCtrl.sumNoHouseVotes)
 app.get(`/house/sum/yes/votes`, houseCtrl.sumYesHouseVotes)
 app.post(`/house/vote`, houseCtrl.addHouseVote)
