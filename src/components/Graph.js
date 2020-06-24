@@ -37,7 +37,6 @@ import axios from 'axios';
     if(prevProps.userVotes !== this.props.userVotes){
       this.handleChartVotes()
       // console.log('props have changed');
-      
     }
   }
 
