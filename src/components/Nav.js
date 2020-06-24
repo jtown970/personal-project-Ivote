@@ -1,12 +1,13 @@
 import React from 'react'
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {getUser} from '../redux/authReducer'
 
 
 
  function Nav(props) {
   if(props.location.pathname !== '/'){
-    console.log(props.auth.user_name)
+    console.log(props.auth)
     return (
       <div className="navigation">
         <section className="nav-list" >
@@ -29,7 +30,9 @@ import {connect} from 'react-redux'
   }
 }
 
-function mapStateToProps (reduxState) {
-  return (reduxState)
-}
-export default withRouter(connect(mapStateToProps)(Nav))
+// function mapStateToProps (reduxState) {
+//   return (reduxState)
+// }
+
+const mapStateToProps = state => state
+export default withRouter(connect(mapStateToProps, {getUser})(Nav))

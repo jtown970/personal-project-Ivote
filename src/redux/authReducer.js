@@ -24,10 +24,10 @@ export function registerUser(user){
   }
 }
 
-export function loginUser(user){
+export function loginUser(auth){
   return {
     type: LOGIN_USER,
-    payload: user
+    payload: auth
   }
 }
 
@@ -55,7 +55,12 @@ export default function (state = initialState, action){
       return {...state, user: action.payload, user_name:action.payload.user_name, location:action.payload.location, isLoggedIn: true}
     case LOGOUT_USER:
       return initialState
-
+    case GET_USER + "_PENDING":
+        return state
+    case GET_USER + "_FULFILLED":
+        return {...state, user: action.payload.data, isLoggedIn: true}
+    case GET_USER + "_REJECTED":
+        return initialState
     default:
       return initialState
   }
