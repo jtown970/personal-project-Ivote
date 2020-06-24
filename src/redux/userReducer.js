@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const initialState = {
-  votes: []
+  votes: [],
+  user_id: 0
 }
 
 const GET_USER_VOTES = 'GET_USER_VOTES'
@@ -78,6 +79,9 @@ export function deleteUserVote(userVotes) {
 
 export default function (state = initialState, action){
   switch(action.type){
+    //add votes
+    // case ADD_USER_VOTES:
+    //   return {...state, user_id: action.payload.user_id}
     // all user votes
     case GET_USER_VOTES:
       return {...state, votes: action.payload}
