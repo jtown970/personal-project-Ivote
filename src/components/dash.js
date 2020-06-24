@@ -60,7 +60,7 @@ class Dash extends Component {
 
             <p>{elem.full_description}</p>
             <span>YES:</span>
-              <input type="checkbox" onChange={() => this.setState({vote_yes: true, item_id: elem.item_id})}/>
+              <input type="checkbox" onChange={() => this.setState({vote_yes: true,users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
             <span>NO:</span>
               <input type="checkbox" onChange={() => this.setState({vote_yes: false, users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
               <button onClick={() => this.handleCastVote()}>Cast Vote</button>
