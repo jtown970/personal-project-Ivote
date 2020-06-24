@@ -49,6 +49,9 @@ class Dash extends Component {
     this.setState({
      castVote: !this.state.castVote
     })
+    if(this.state.item_id === this.state.item_id){
+      this.isVoting()
+    }
   }
 
   render() {

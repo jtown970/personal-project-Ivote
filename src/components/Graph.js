@@ -36,7 +36,7 @@ import axios from 'axios';
   componentDidUpdate(prevProps, prevState){
     if(prevProps.userVotes !== this.props.userVotes){
       this.handleChartVotes()
-      console.log('props have changed');
+      // console.log('props have changed');
       
     }
   }
