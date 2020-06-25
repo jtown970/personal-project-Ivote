@@ -48,11 +48,16 @@ class HouseVotes extends Component {
         })
       }
 
+    // getOneChart(){
+    //     if(){}
+    // }
+
     getHouseRepVotes(){
     let yes = [];
     axios.get(`/house/sum/${this.state.eId}`)
         .then(res => { 
             console.log(res.data)
+            
                 yes.push(parseInt(res.data.count))
 
             this.setState({
@@ -86,11 +91,35 @@ class HouseVotes extends Component {
                     onClick={() => this.seeHouseVotes()}>
                     {elem.rep_name}
                     </button> 
-                ) : (
+                ) : this.state.eId === elem.house_votes_id ?(                             <div className="all-house-yes-chart yes-chart">
+                <Bar
+                data={this.state.chartData1}
+                options={{
+                    title:{
+                    display:this.props.displayTitle,
+                    text:'Largest Cities In '+this.props.location,
+                    fontSize:25,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                    },
+                    legend:{
+                    display:this.props.displayLegend,
+                    position:this.props.legendPosition
+                    }
+                }}
+                />
+            </div>) : (
+                    // {this.state.eId ?(<div></div>):(
+                    
                     <div className="rep-votes-charts">
                          <div style={{position: 'relative', width: 300, height:550}}>
                         <div className="house-chart">  
-                            <div className="all-house-yes-chart yes-chart">
+                            {/* <div className="all-house-yes-chart yes-chart">
                                 <Bar
                                 data={this.state.chartData1}
                                 options={{
@@ -136,9 +165,9 @@ class HouseVotes extends Component {
                                     }
                                 }}
                                 />
-                            </div>
-                            <div>{elem.rep_name}</div>
-                        <button onClick={() => this.seeHouseVotes()}>close</button>
+                            </div> */}
+                            {/* <div>{elem.rep_name}</div> */}
+                        {/* <button onClick={() => this.seeHouseVotes()}>close</button> */}
                         </div>
                     </div>
                 </div>
