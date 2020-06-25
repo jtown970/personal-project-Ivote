@@ -116,13 +116,11 @@ class HouseVotes extends Component {
                                 }
                             }}
                     />
+                    <button onClick={() => this.seeHouseVotes()}>close</button>
                 </div>
-                ) : this.state.eId === rep.house_id ?(
-                    <div> 
-                        <button>close</button> 
-                    </div>
+              
                 ):(
-                    <div>hey</div>
+                    <div></div>
                 )}
             </div>
             
