@@ -19,5 +19,52 @@
       "Debbie Lesko": "AZ-2",
       "David Schweikert": "AZ-1"
     }
+  },
+
+  {
+  "item": "H.R.7010 - To amend the Small Business Act and the CARES Act to modify certain provisions related to the for...",
+  "Description": "Paycheck Protection Program Flexibility Act",
+  "result": "Passed by a margin of 138 votes (2/3rds majority needed to pass)",
+  "date": "May 28, 2020 at 1:12 p.m. EDT",
+  "votedYes": 417,
+  "votedNo": 1,
+  "azRepsYes": {
+    "Ruben Gallego": "AZ-7",
+    "Raúl M. Grijalva": "AZ-3",
+    "Ann Kirkpatrick": "AZ-2",
+    "Tom O'Halleran": "AZ-1",
+    "Greg Stanton": "AZ-9",
+    "Andy Biggs": "AZ-7",
+    "Paul Gosar": "AZ-3",
+    "Debbie Lesko": "AZ-2",
+    "David Schweikert": "AZ-1"
+  },
+  "azRepsNo": {
+    
   }
+},
+
+{
+  "item": "H.R.6800 - Making emergency supplemental appropriations for the fiscal year ending September 30, 2020, and f...",
+  "Description": "HEROES Act",
+  "result": "Failed by a margin of 6 votes (simple majority required to pass)",
+  "date": "May 15, 2020 at 8:22 p.m. EDT",
+  "votedYes": 198,
+  "votedNo": 209,
+  "azRepsYes": {
+    "Andy Biggs": "AZ-7",
+    "Paul Gosar": "AZ-3",
+    "Debbie Lesko": "AZ-2",
+    "David Schweikert": "AZ-1"
+  },
+  "azRepsNo": {
+    "Ruben Gallego": "AZ-7",
+    "Raúl M. Grijalva": "AZ-3",
+    "Ann Kirkpatrick": "AZ-2",
+    "Tom O'Halleran": "AZ-1",
+    "Greg Stanton": "AZ-9"
+  }
+}
+
+
 ]
