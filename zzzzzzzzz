@@ -24,6 +24,10 @@ create table user_votes (
     vote_yes boolean
 );
 
+create table house_reps ( 
+    house_id serial primary key,
+    rep_name varchar(100)
+);
 
 create table house_votes (
     house_votes_id serial primary key,
@@ -73,3 +77,8 @@ select count(voted_yes) from house_votes
 where voted_yes = false
 
 select * from user_votes
+
+fix house votes 
+
+select count(voted_yes ) from house_votes
+where voted_yes = true and rep_name like '%Ruben%'

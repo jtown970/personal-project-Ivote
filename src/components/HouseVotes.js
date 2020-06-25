@@ -76,6 +76,7 @@ class HouseVotes extends Component {
             }
             });
         })
+        console.log(yes)
     }
 
 
@@ -83,7 +84,6 @@ class HouseVotes extends Component {
         const houseMap = this.props.house.houseVotes.map( elem => {
             return <div key={`houseVotesId_${elem.house_votes_id}`}>
 
-                
                 {!this.state.seeHouseVotesByMember?(
                     <button 
                     className="rep-btn"
@@ -91,28 +91,29 @@ class HouseVotes extends Component {
                     onClick={() => this.seeHouseVotes()}>
                     {elem.rep_name}
                     </button> 
-                ) : this.state.eId === elem.house_votes_id ?(                             <div className="all-house-yes-chart yes-chart">
-                <Bar
-                data={this.state.chartData1}
-                options={{
-                    title:{
-                    display:this.props.displayTitle,
-                    text:'Largest Cities In '+this.props.location,
-                    fontSize:25,
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                    },
-                    legend:{
-                    display:this.props.displayLegend,
-                    position:this.props.legendPosition
-                    }
-                }}
-                />
+                ) : this.state.eId === elem.house_votes_id ?(                             
+                <div className="all-house-yes-chart yes-chart">
+                    <Bar
+                        data={this.state.chartData1}
+                            options={{
+                                title:{
+                                display:this.props.displayTitle,
+                                text:'Largest Cities In '+this.props.location,
+                                fontSize:25,
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                                },
+                                legend:{
+                                display:this.props.displayLegend,
+                                position:this.props.legendPosition
+                                }
+                            }}
+                    />
             </div>) : (
                     // {this.state.eId ?(<div></div>):(
                     

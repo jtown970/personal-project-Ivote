@@ -44,9 +44,9 @@ module.exports = {
 
   addHouseVote: async (req, res) => {
     const db = req.app.get('db')
-    const {item_id, rep_name, location, voted_yes, passed} = req.body
+    const {item_id, houses_id, voted_yes, passed} = req.body
 
-    const newVote = await db.add_house_vote({item_id, rep_name, location, voted_yes, passed})
+    const newVote = await db.add_house_vote({item_id, houses_id, voted_yes, passed})
 
     res.status(200).send(newVote[0])
   },
@@ -76,9 +76,9 @@ module.exports = {
 
   sumYesById: async (req, res) => {
     const db = req.app.get('db')
-    const {house_votes_id} = req.params
+    const {houses_id} = req.params
 
-    const byId = await db.sum_house_votes_id([house_votes_id])
+    const byId = await db.sum_house_votes_id([houses_id])
 
     if(byId[0]){
       res.status(200).send(byId[0])
