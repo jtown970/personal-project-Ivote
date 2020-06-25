@@ -72,6 +72,20 @@ module.exports = {
     } catch {
       res.status(404).send('could not find no votes for the house')
     }
+  },
+
+  sumYesById: async (req, res) => {
+    const db = req.app.get('db')
+    const {house_votes_id} = req.params
+
+    const byId = await db.sum_house_votes_id([house_votes_id])
+
+    if(byId[0]){
+      res.status(200).send(byId[0])
+    } else {
+      res.status(404).send('no votes found for this house rep')
+    }
+
   }
   
 }
