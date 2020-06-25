@@ -41,6 +41,18 @@ module.exports = {
     }
   },
 
+  getAllHouseReps: async (req, res) => {
+    const db = req.app.get('db')
+    
+    try{
+      const reps = await db.get_house_reps()
+      res.status(200).send(reps)
+    } catch {
+      res.status(404).send('could not find reps')
+    }
+
+  },
+
 
   addHouseVote: async (req, res) => {
     const db = req.app.get('db')
