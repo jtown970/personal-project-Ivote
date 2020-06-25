@@ -37,7 +37,20 @@ module.exports = {
     if(hv[0]){
       res.status(200).send(hv[0])
     } else {
-      res.status(404).send('could not find house vote')
+      res.status(404).send('could not find yes house vote')
+    }
+  },
+
+  housesNoVotesId: async (req, res) => {
+    const db = req.app.get('db')
+    const {houses_id} = req.params
+
+    const hvNo = await db.sum_house_id_no([houses_id])
+
+    if(hvNo[0]){
+      res.status(200).send(hvNo[0])
+    } else {
+      res.status(404).send('could not find no house vote')
     }
   },
 

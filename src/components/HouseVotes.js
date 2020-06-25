@@ -14,6 +14,7 @@ class HouseVotes extends Component {
             chartData1: {},
             chartData2: {},
             eId: 0,
+            noId: 0,
             seeHouseVotesByMember: false,
         }
         this.getHouseRepVotes = this.getHouseRepVotes.bind(this)
@@ -23,6 +24,7 @@ class HouseVotes extends Component {
 
         this.handleChart()
         this.getHouseRepVotes()
+        this.getHouseRepVotesNo()
         this.props.getUser()
         this.props.houseMembers()
         this.props.sumAllHouseYes()
@@ -36,6 +38,7 @@ class HouseVotes extends Component {
         if(prevState.eId !== this.state.eId){
         //   this.handleChart()
           this.getHouseRepVotes()
+          this.getHouseRepVotesNo()
           console.log('props have changed');
         }
       }
@@ -43,6 +46,7 @@ class HouseVotes extends Component {
     handleChart(){
         this.props.houseMembers()
         this.getHouseRepVotes()
+        this.getHouseRepVotesNo()
     }
 
     seeHouseVotes(){
@@ -82,6 +86,33 @@ class HouseVotes extends Component {
         console.log(yes)
     }
 
+    getHouseRepVotesNo(){
+        let yes = [];
+        axios.get(`/house/no/vote/${this.state.eId}`)
+            .then(res => { 
+                console.log(res.data)
+                
+                    yes.push(parseInt(res.data.count))
+    
+                this.setState({
+                chartData2:{
+                    labels: ['House Yes Votes'],
+                    datasets:[
+                    {
+                        label:'House votes',
+                        data: yes,
+                        backgroundColor:[
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        ]
+                    }
+                    ]
+                }
+                });
+            })
+            console.log(yes)
+        }
+
 
     render(){
 
@@ -94,6 +125,7 @@ class HouseVotes extends Component {
                     {rep.rep_name}
                     </button>
                 ) : this.state.eId === rep.house_id ?(
+                <div style={{position: 'relative', width: 300, height:550}}>
                 <div className="all-house-yes-chart yes-chart">
                     <Bar
                         data={this.state.chartData1}
@@ -116,16 +148,40 @@ class HouseVotes extends Component {
                                 }
                             }}
                     />
-                    <button onClick={() => this.seeHouseVotes()}>close</button>
                 </div>
-              
+                    <div className="all-house-no-chart no-char">
+                                <Bar
+                                data={this.state.chartData2}
+                                options={{
+                                    title:{
+                                    display:this.props.displayTitle,
+                                    text:'Largest Cities In '+this.props.location,
+                                    fontSize:25,
+                                    scales: {
+                                        yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                        }]
+                                    }
+                                    },
+                                    legend:{
+                                    display:this.props.displayLegend,
+                                    position:this.props.legendPosition
+                                    }
+                                }}
+                                />
+                    <button onClick={() => this.seeHouseVotes()}>close</button>
+
+                            </div> 
+              </div>
                 ):(
                     <div></div>
                 )}
             </div>
             
         })
-        console.log(repMap);
+        // console.log(repMap);
 
         // const houseMap = this.props.house.houseVotes.map( elem => {
         //     return <div key={`houseVotesId_${elem.house_votes_id}`}>
@@ -166,7 +222,7 @@ class HouseVotes extends Component {
         //             // {this.state.eId ?(<div></div>):(
                     
         //             <div className="rep-votes-charts">
-        //                  <div style={{position: 'relative', width: 300, height:550}}>
+        //                  
         //                 <div className="house-chart">  
         //                     {/* <div className="all-house-yes-chart yes-chart">
         //                         <Bar
