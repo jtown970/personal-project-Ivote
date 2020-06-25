@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux';
-import {getHouse, sumAllHouseYes, sumAllHouseNo} from '../redux/houseReducer';
+import {getHouse, sumAllHouseYes, sumAllHouseNo, houseMembers} from '../redux/houseReducer';
 import {getUser} from '../redux/authReducer'
 
 
@@ -20,9 +20,11 @@ class HouseVotes extends Component {
     }
 
     componentDidMount(){
+
         this.handleChart()
         this.getHouseRepVotes()
         this.props.getUser()
+        this.props.houseMembers()
         this.props.sumAllHouseYes()
         this.props.sumAllHouseNo()
         axios.get('/house/votes').then( res => {
@@ -39,6 +41,7 @@ class HouseVotes extends Component {
       }
 
     handleChart(){
+        this.props.houseMembers()
         this.getHouseRepVotes()
     }
 
@@ -82,7 +85,13 @@ class HouseVotes extends Component {
 
     render(){
 
-        // const houseReps = 
+        const repMap = this.props.house.houseRep.map(rep => {
+            return <div key={`houseRepsId${rep.house_id}`}>
+                <button>{rep.rep_name}</button>
+            </div>
+            
+        })
+        console.log(repMap);
 
         const houseMap = this.props.house.houseVotes.map( elem => {
             return <div key={`houseVotesId_${elem.house_votes_id}`}>
@@ -90,9 +99,10 @@ class HouseVotes extends Component {
                 {!this.state.seeHouseVotesByMember?(
                     <button 
                     className="rep-btn"
-                    onMouseEnter={() => this.setState({eId: elem.house_votes_id})} 
+                    onMouseEnter={() => this.setState({eId: elem.houses_id})} 
                     onClick={() => this.seeHouseVotes()}>
-                    {elem.rep_name}
+                    {/* {elem.rep_name} */}
+                    old map
                     </button> 
                 ) : this.state.eId === elem.house_votes_id ?(                             
                 <div className="all-house-yes-chart yes-chart">
@@ -182,6 +192,7 @@ class HouseVotes extends Component {
         
         return (
             <div className='houseMapping'>
+                {repMap}
                 {houseMap}
             </div>
         )
@@ -190,7 +201,7 @@ class HouseVotes extends Component {
 
 
 const mapStateToProps = state => state;
-const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo, getUser}
+const mapDispatchToProps = {getHouse, sumAllHouseYes, sumAllHouseNo, getUser, houseMembers}
 export default connect(mapStateToProps, mapDispatchToProps)(HouseVotes);
 
 

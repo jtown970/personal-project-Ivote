@@ -1,11 +1,13 @@
 import axios from 'axios'
 const initialState = {
-  houseVotes: []
+  houseVotes: [],
+  houseRep: []
 }
 
 const GET_HOUSE = "GET_HOUSE";
 const SUM_HOUSE_YES_VOTES = 'SUM_HOUSE_YES_VOTES'
 const SUM_HOUSE_NO_VOTES = 'SUM_HOUSE_NO_VOTES'
+const HOUSE_MEMBERS = 'HOUSE_MEMBERS'
 
 export function getHouse(house) {
   return {
@@ -13,6 +15,9 @@ export function getHouse(house) {
       payload: house
   }
 }
+
+
+
 
 export function sumAllHouseYes(){
 const sumHouseYes = axios.get(`/house/sum/yes/votes`)
@@ -29,6 +34,14 @@ export function sumAllHouseNo(){
       payload: sumHouseNo
     }
   }
+
+  export function houseMembers(){
+    const members = axios.get(`/house/reps`)
+      return {
+        type: HOUSE_MEMBERS,
+        payload: members
+      }
+    }
 
 export default function (state = initialState, action){
   switch(action.type){
@@ -47,6 +60,13 @@ export default function (state = initialState, action){
       case SUM_HOUSE_NO_VOTES + "_FULFILLED":
         return {...state, sumHouseNo: action.payload.data}
       case SUM_HOUSE_NO_VOTES + "_REJECTED":
+        return state
+      // get all house reps
+      case HOUSE_MEMBERS + "_PENDING":
+        return state
+      case HOUSE_MEMBERS + "_FULFILLED":
+        return {...state, houseRep: action.payload.data}
+      case HOUSE_MEMBERS + "_REJECTED":
         return state
       default:
           return state
