@@ -87,24 +87,13 @@ class HouseVotes extends Component {
 
         const repMap = this.props.house.houseRep.map(rep => {
             return <div key={`houseRepsId${rep.house_id}`}>
-                <button>{rep.rep_name}</button>
-            </div>
-            
-        })
-        console.log(repMap);
-
-        const houseMap = this.props.house.houseVotes.map( elem => {
-            return <div key={`houseVotesId_${elem.house_votes_id}`}>
-
                 {!this.state.seeHouseVotesByMember?(
                     <button 
-                    className="rep-btn"
-                    onMouseEnter={() => this.setState({eId: elem.houses_id})} 
+                    onMouseEnter={() => this.setState({eId: rep.house_id})}
                     onClick={() => this.seeHouseVotes()}>
-                    {/* {elem.rep_name} */}
-                    old map
-                    </button> 
-                ) : this.state.eId === elem.house_votes_id ?(                             
+                    {rep.rep_name}
+                    </button>
+                ) : this.state.eId === rep.house_id ?(
                 <div className="all-house-yes-chart yes-chart">
                     <Bar
                         data={this.state.chartData1}
@@ -127,73 +116,122 @@ class HouseVotes extends Component {
                                 }
                             }}
                     />
-            </div>) : (
-                    // {this.state.eId ?(<div></div>):(
-                    
-                    <div className="rep-votes-charts">
-                         <div style={{position: 'relative', width: 300, height:550}}>
-                        <div className="house-chart">  
-                            {/* <div className="all-house-yes-chart yes-chart">
-                                <Bar
-                                data={this.state.chartData1}
-                                options={{
-                                    title:{
-                                    display:this.props.displayTitle,
-                                    text:'Largest Cities In '+this.props.location,
-                                    fontSize:25,
-                                    scales: {
-                                        yAxes: [{
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }]
-                                    }
-                                    },
-                                    legend:{
-                                    display:this.props.displayLegend,
-                                    position:this.props.legendPosition
-                                    }
-                                }}
-                                />
-                            </div>
-
-                            <div className="all-house-no-chart no-char">
-                                <Bar
-                                data={this.state.chartData2}
-                                options={{
-                                    title:{
-                                    display:this.props.displayTitle,
-                                    text:'Largest Cities In '+this.props.location,
-                                    fontSize:25,
-                                    scales: {
-                                        yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                        }]
-                                    }
-                                    },
-                                    legend:{
-                                    display:this.props.displayLegend,
-                                    position:this.props.legendPosition
-                                    }
-                                }}
-                                />
-                            </div> */}
-                            {/* <div>{elem.rep_name}</div> */}
-                        {/* <button onClick={() => this.seeHouseVotes()}>close</button> */}
-                        </div>
-                    </div>
                 </div>
+                ) : this.state.eId === rep.house_id ?(
+                    <div> 
+                        <button>close</button> 
+                    </div>
+                ):(
+                    <div>hey</div>
                 )}
             </div>
+            
         })
+        console.log(repMap);
+
+        // const houseMap = this.props.house.houseVotes.map( elem => {
+        //     return <div key={`houseVotesId_${elem.house_votes_id}`}>
+
+        //         {!this.state.seeHouseVotesByMember?(
+        //             <button 
+        //             className="rep-btn"
+        //             // onMouseEnter={() => this.setState({eId: elem.houses_id})} 
+        //             // onClick={() => this.seeHouseVotes()}
+        //             >
+        //             {/* {elem.rep_name} */}
+        //             old map
+        //             </button> 
+        //         ) : this.state.eId === elem.house_votes_id ?(                             
+        //         <div className="all-house-yes-chart yes-chart">
+        //             <Bar
+        //                 data={this.state.chartData1}
+        //                     options={{
+        //                         title:{
+        //                         display:this.props.displayTitle,
+        //                         text:'Largest Cities In '+this.props.location,
+        //                         fontSize:25,
+        //                         scales: {
+        //                             yAxes: [{
+        //                                 ticks: {
+        //                                     beginAtZero: true
+        //                                 }
+        //                             }]
+        //                         }
+        //                         },
+        //                         legend:{
+        //                         display:this.props.displayLegend,
+        //                         position:this.props.legendPosition
+        //                         }
+        //                     }}
+        //             />
+        //     </div>) : (
+        //             // {this.state.eId ?(<div></div>):(
+                    
+        //             <div className="rep-votes-charts">
+        //                  <div style={{position: 'relative', width: 300, height:550}}>
+        //                 <div className="house-chart">  
+        //                     {/* <div className="all-house-yes-chart yes-chart">
+        //                         <Bar
+        //                         data={this.state.chartData1}
+        //                         options={{
+        //                             title:{
+        //                             display:this.props.displayTitle,
+        //                             text:'Largest Cities In '+this.props.location,
+        //                             fontSize:25,
+        //                             scales: {
+        //                                 yAxes: [{
+        //                                     ticks: {
+        //                                         beginAtZero: true
+        //                                     }
+        //                                 }]
+        //                             }
+        //                             },
+        //                             legend:{
+        //                             display:this.props.displayLegend,
+        //                             position:this.props.legendPosition
+        //                             }
+        //                         }}
+        //                         />
+        //                     </div>
+
+        //                     <div className="all-house-no-chart no-char">
+        //                         <Bar
+        //                         data={this.state.chartData2}
+        //                         options={{
+        //                             title:{
+        //                             display:this.props.displayTitle,
+        //                             text:'Largest Cities In '+this.props.location,
+        //                             fontSize:25,
+        //                             scales: {
+        //                                 yAxes: [{
+        //                                 ticks: {
+        //                                     beginAtZero: true
+        //                                 }
+        //                                 }]
+        //                             }
+        //                             },
+        //                             legend:{
+        //                             display:this.props.displayLegend,
+        //                             position:this.props.legendPosition
+        //                             }
+        //                         }}
+        //                         />
+        //                     </div> */}
+        //                     {/* <div>{elem.rep_name}</div> */}
+        //                 {/* <button onClick={() => this.seeHouseVotes()}>close</button> */}
+        //                 </div>
+        //             </div>
+        //         </div>
+        //         )}
+        //     </div>
+        // })
         // console.log(houseMap);
         
         return (
             <div className='houseMapping'>
                 {repMap}
-                {houseMap}
+                
+                {/* {houseMap} */}
             </div>
         )
     }
