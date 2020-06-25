@@ -34,7 +34,7 @@ class HouseVotes extends Component {
         if(prevState.eId !== this.state.eId){
         //   this.handleChart()
           this.getHouseRepVotes()
-          // console.log('props have changed');
+          console.log('props have changed');
         }
       }
 
@@ -51,50 +51,43 @@ class HouseVotes extends Component {
     getHouseRepVotes(){
     let yes = [];
     axios.get(`/house/sum/${this.state.eId}`)
-    .then(res => {
-        // if(res.data.voted_yes === true){
-        //     yes.push(parseInt())
-        // }
-        console.log(res.data)
-        for(const dataObj of res.data){
-            if(dataObj.voted_yes === true){
-                yes++
-            }
-        // yes.push(parseInt(dataObj.data))
-        console.log(res)
-        }
+        .then(res => { 
+            console.log(res.data)
+                yes.push(parseInt(res.data.count))
 
-        this.setState({
-        chartData1:{
-            labels: ['House Yes Votes'],
-            datasets:[
-            {
-                label:'House votes',
-                data: yes,
-                backgroundColor:[
-                'rgba(255, 99, 132, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
+            this.setState({
+            chartData1:{
+                labels: ['House Yes Votes'],
+                datasets:[
+                {
+                    label:'House votes',
+                    data: yes,
+                    backgroundColor:[
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    ]
+                }
                 ]
             }
-            ]
-        }
-        });
-    })
-    console.log(yes);
+            });
+        })
     }
 
 
     render(){
         const houseMap = this.props.house.houseVotes.map( elem => {
             return <div key={`houseVotesId_${elem.house_votes_id}`}>
+
+                
                 {!this.state.seeHouseVotesByMember?(
                     <button 
-                    onMouseEnter={() => this.setState({eId: elem.item_id})} 
+                    className="rep-btn"
+                    onMouseEnter={() => this.setState({eId: elem.house_votes_id})} 
                     onClick={() => this.seeHouseVotes()}>
                     {elem.rep_name}
                     </button> 
                 ) : (
-                    <div>
+                    <div className="rep-votes-charts">
                          <div style={{position: 'relative', width: 300, height:550}}>
                         <div className="house-chart">  
                             <div className="all-house-yes-chart yes-chart">
@@ -144,6 +137,7 @@ class HouseVotes extends Component {
                                 }}
                                 />
                             </div>
+                            <div>{elem.rep_name}</div>
                         <button onClick={() => this.seeHouseVotes()}>close</button>
                         </div>
                     </div>
