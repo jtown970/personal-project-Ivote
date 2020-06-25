@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import routes from './routes'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 import {connect} from 'react-redux'
 import {getUser} from './redux/authReducer'
 
@@ -17,6 +18,7 @@ class App extends Component {
       <div className="App">
         <Nav  />
         {routes}
+        <Footer/>
       </div>
     );
   }

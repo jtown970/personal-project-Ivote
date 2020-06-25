@@ -8,6 +8,7 @@ import {registerUser} from '../redux/authReducer'
   constructor(){
     super()
     this.state = {
+      isRegistering: false,
       user_name: '',
       password: '',
       location: ''
@@ -17,6 +18,13 @@ import {registerUser} from '../redux/authReducer'
   changeHandler = (e) => {
     this.setState({
       [e.target.name]: e.target.value
+    })
+  }
+
+  toggleRegister(e) {
+    
+    this.setState({
+      isRegistering: !this.state.isRegistering
     })
   }
 
@@ -68,13 +76,32 @@ import {registerUser} from '../redux/authReducer'
             name="password"
             value={password}
             onChange={e => this.changeHandler(e)} />
-          <input 
+          {!this.state.isRegistering?(
+          <div>
+            <p>Hover over me then enter a state to register</p>
+            <button 
+            onMouseEnter={e => this.toggleRegister()} 
+            // onMouseLeave={e => this.toggleRegister()} 
+             >Hover to add State</button>
+          </div>
+          ):(
+          <div>
+            <input 
             className="input-field"
             type="text"
             placeholder="State..."
             name="location"
             value={location}
             onChange={e => this.changeHandler(e)}/>
+          </div>
+          )}
+          {/* <input 
+            className="input-field"
+            type="text"
+            placeholder="State..."
+            name="location"
+            value={location}
+            onChange={e => this.changeHandler(e)}/> */}
           <button 
             className="login-btn"
             type="submit"
