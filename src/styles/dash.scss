@@ -1,9 +1,27 @@
+@import "reset.scss";
 .dash {
   // height: 100%vh;
   .items-list {
-    margin: auto;
-    width: 50vw;
+    // display: flex;
+    // justify-content: flex-end;
+    margin-left: 20%;
+    margin-bottom: 3%;
+    // width: 40vw;
+    // height: vh;
+    margin-left: 20%;
+    // width: 50vw;
     color: rgb(53, 53, 53);
   }
+
   // background: linear-gradient(#e66465, #9198e5);
 }
+.main-charts {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 51.5%;
+  width: 40vw;
+  height: 40vh;
+}
+

@@ -120,8 +120,8 @@ class HouseVotes extends Component {
                     {rep.rep_name}
                     </button>
                 ) : this.state.eId === rep.house_id ?(
-                <div style={{position: 'relative', width: 300, height:550}}>
-                <div className="all-house-yes-chart yes-chart">
+                    <div style={{position: "absolute", width: 170, height:250}}>
+                    <div className="all-house-yes-chart yes-chart">
                     <Bar
                         data={this.state.chartData1}
                             options={{

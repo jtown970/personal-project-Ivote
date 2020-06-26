@@ -82,3 +82,6 @@ fix house votes
 
 select count(voted_yes ) from house_votes
 where voted_yes = true and rep_name like '%Ruben%'
+
+style for charts
+style={{position: 'relative', width: 300, height:550}}

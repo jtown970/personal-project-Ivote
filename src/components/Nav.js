@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/nav.scss'
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser} from '../redux/authReducer'
@@ -13,15 +14,14 @@ import {getUser} from '../redux/authReducer'
         <section className="nav-list" >
           <div className="user">
           </div>
-          <div className="nav-logout-btn">
+          <div className="nav-items-btn">
            <p className="user-name" >{props.auth.user.user_name}</p>
            
             <button className="logout-btn">
-              <Link className="nav-btn" to="/">Logout</Link>
+              <Link className="log-btn" to="/">Logout</Link>
             </button>
           </div>
         </section>
-        Nav
       </div>
     )  
 

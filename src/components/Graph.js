@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../styles/graph.scss'
 import Dash from './Dash'
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux'
@@ -242,7 +243,8 @@ import axios from 'axios';
 
   render() {
     return (
-      <div style={{position: 'relative', width: 200, height:250}}>
+      
+      <div className="main-charts" style={{position: "relative", width: 170, height:250}} >
           {/* see house votes  */}
         {!this.state.seeHouseVotes ? (
           <button onClick={() => this.seeHouseVotes()}>See all house Votes</button>

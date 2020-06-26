@@ -84,7 +84,7 @@ class Dash extends Component {
     });
     return (
       <div className="dash">
-        <HouseVotes/>
+        {/* <HouseVotes/> */}
         <Graph/>
         {itemsMap}
         {/* dash Component */}
