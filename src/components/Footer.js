@@ -9,7 +9,6 @@ export default function Footer() {
           <ol></ol>
         </ul>
       </div>
-      Footer
     </div>
   )
 }
