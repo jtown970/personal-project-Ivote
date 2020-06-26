@@ -242,7 +242,7 @@ import axios from 'axios';
 
   render() {
     return (
-      <div style={{position: 'relative', width: 300, height:550}}>
+      <div style={{position: 'relative', width: 200, height:250}}>
           {/* see house votes  */}
         {!this.state.seeHouseVotes ? (
           <button onClick={() => this.seeHouseVotes()}>See all house Votes</button>
@@ -413,7 +413,7 @@ import axios from 'axios';
                 <button onClick={() => this.seeSessionVotes()}>close</button>
               </div>
             )}
-          graph Component
+          {/* graph Component */}
           {/* <Dash/> */}
       </div>
     )

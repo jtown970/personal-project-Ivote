@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../styles/dash.scss'
 import {connect} from 'react-redux'
 import HouseVotes from './HouseVotes'
 import axios from 'axios'
@@ -57,10 +58,11 @@ class Dash extends Component {
   render() {
     let itemsMap = this.state.items.map((elem) => {
       return <div key={elem.item_id}>
+        <div className="items-list">
         <div>{elem.item_name}</div>
         <div>{elem.description}</div>
         {!this.state.isVoting ? (
-          <button onDoubleClick={() => this.isVoting()} >view</button>
+          <button onClick={() => this.isVoting()} >view</button>
         ) : (
           <div>
 
@@ -73,22 +75,23 @@ class Dash extends Component {
               onClick={
               () => this.handleCastVote()
               }>Cast Vote</button>
-            <p> hello testing toggle</p>
+            {/* <p> hello testing toggle</p> */}
             <button onClick={() => this.isVoting()}>Close</button>
           </div>
         )}
       </div>
+    </div>
     });
-    
     return (
-      <div>
+      <div className="dash">
         <HouseVotes/>
         <Graph/>
         {itemsMap}
-        dash Component
+        {/* dash Component */}
       </div>
     )
   }
+  
 }
 const mapStateToProps = state => state
 const mapDispatchToProps = {getUser, addUserVote }
