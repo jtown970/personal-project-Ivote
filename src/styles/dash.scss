@@ -16,12 +16,21 @@
   // background: linear-gradient(#e66465, #9198e5);
 }
 .main-charts {
-  margin-top: 10%;
-  margin-bottom: 5%;
+  // margin-top: 10%;
+  // margin-bottom: 5%;
   display: flex;
   justify-content: flex-end;
-  margin-left: 51.5%;
+  margin-left: 40%;
   width: 40vw;
-  height: 40vh;
+  height: 30vh;
+
+   .see-charts {
+     height: 25px;
+     width: 200px;
+     margin: 5px;
+     padding: 1px;
+     box-shadow: 2px 3px 3px #00000049;
+     border-radius: 5px;
+   }
 }
 

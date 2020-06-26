@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import '../styles/leftNav.scss'
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux';
 import {getHouse, sumAllHouseYes, sumAllHouseNo, houseMembers} from '../redux/houseReducer';
@@ -115,6 +116,7 @@ class HouseVotes extends Component {
             return <div key={`houseRepsId${rep.house_id}`}>
                 {!this.state.seeHouseVotesByMember?(
                     <button 
+                    className="see-votes"
                     onMouseEnter={() => this.setState({eId: rep.house_id})}
                     onClick={() => this.seeHouseVotes()}>
                     {rep.rep_name}
