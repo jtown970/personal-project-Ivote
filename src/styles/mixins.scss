@@ -1,0 +1,15 @@
+@mixin displayFlex($justify, $align, $flexFlow){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-flow: $flexFlow;
+}
+
+.button-mix {
+  height: 25px;
+  width: 150px;
+  margin: 5px;
+  padding: 1px;
+  box-shadow: 2px 3px 3px #00000049;
+  border-radius: 5px;
+}

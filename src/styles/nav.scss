@@ -25,6 +25,7 @@ $button-color: red;
   .nav-items-btn {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
   }
 
@@ -36,7 +37,11 @@ $button-color: red;
     color: rgb(240, 140, 207);
   }
 }
-
+.logout-btn-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .logout-btn {
   color: $button-color;
   text-decoration: none!important;

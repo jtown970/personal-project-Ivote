@@ -16,10 +16,11 @@ import {getUser} from '../redux/authReducer'
           </div>
           <div className="nav-items-btn">
            <p className="user-name" >{props.auth.user.user_name}</p>
-           
+           <div className="logout-btn-top">
             <button className="logout-btn">
               <Link className="log-btn" to="/">Logout</Link>
             </button>
+            </div>
           </div>
         </section>
       </div>
