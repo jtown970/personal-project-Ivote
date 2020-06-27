@@ -19,7 +19,7 @@ import {getUser} from '../redux/authReducer'
     )  
 
   } else {
-    return "Welcome to Ivote login or register"
+    return ""
   }
 }
 

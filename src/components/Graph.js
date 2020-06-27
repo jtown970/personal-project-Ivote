@@ -412,7 +412,7 @@ import axios from 'axios';
                     }}
                   />
                 </div>
-                <button onClick={() => this.seeSessionVotes()}>close</button>
+                <button className="close-btn" onClick={() => this.seeSessionVotes()}>close</button>
               </div>
             )}
           {/* graph Component */}

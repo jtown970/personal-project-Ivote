@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import '../styles/login.scss'
 import { connect } from 'react-redux'
 import {loginUser} from '../redux/authReducer'
 import {registerUser} from '../redux/authReducer'
@@ -78,8 +79,9 @@ import {registerUser} from '../redux/authReducer'
             onChange={e => this.changeHandler(e)} />
           {!this.state.isRegistering?(
           <div>
-            <p>Hover over me then enter a state to register</p>
+            <p>Enter State to Register</p>
             <button 
+            className="state-btn"
             onMouseEnter={e => this.toggleRegister()} 
             // onMouseLeave={e => this.toggleRegister()} 
              >Hover to add State</button>

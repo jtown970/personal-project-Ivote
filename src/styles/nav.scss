@@ -1,7 +1,14 @@
+$button-color: red;
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+.welcome-text {
+  padding-top: 5%;
+  color: rgb(34, 34, 34);
+  font-size: 1.3rem;
 }
 .navigation {
   height: 50px;
@@ -25,23 +32,20 @@
     margin-right: 10%;
   }
 
-
-
   .name {
     color: rgb(240, 140, 207);
   }
 }
 
-button {
-  text-decoration: none!important;
-}
-
 .logout-btn {
+  color: $button-color;
   text-decoration: none!important;
-  color: black;
-  background-color: darkgray;
-  box-shadow: 3px 3px 10px #000000;
-  border-radius: 15px;
+  height: 25px;
+  width: 80px;
+  margin: 5px;
+  padding: 1px;
+  box-shadow: 1px 2px 3px #00000036;
+  border-radius: 5px;
 
   .log-btn {
     text-decoration: none!important;
