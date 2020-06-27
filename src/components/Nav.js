@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/nav.scss'
+import '../styles/App.scss'
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser} from '../redux/authReducer'

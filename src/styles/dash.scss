@@ -1,9 +1,13 @@
 @import "reset.scss";
-.dash {
+@mixin displayFlex($justify, $align, $flexFlow){
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
+  flex-flow: $flexFlow;
+}
+
+.dash {
+  @include displayFlex(center, center, column);
 
   .items-list {
     width: 800px;
@@ -13,10 +17,7 @@
 
 }
 .main-charts {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  // margin-left: 5%;
+  @include displayFlex(flex-end, flex-end, row);
   width: 40vw;
   height: 30vh;
 
@@ -29,10 +30,7 @@
      border-radius: 5px;
    }
    .cast-votes {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
+  @include displayFlex(center, center, column);
    }
 }
 

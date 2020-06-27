@@ -1,9 +1,13 @@
+@mixin displayFlex($justify, $align, $flexFlow){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  // flex-flow: $flexFlow;
+}
+
 .login-form {
   height: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // border: 1px solid black;
+  @include displayFlex(center, center, row);
 }
 
 .input-field {

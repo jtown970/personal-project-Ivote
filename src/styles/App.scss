@@ -1,5 +1,14 @@
+@import "mixins.scss";
+@import "var.scss";
+
 @import "reset.scss";
 
+@import "nav.scss";
+@import "leftNav.scss";
+@import "login.scss";
+@import "dash.scss";
+@import "graph.scss";
+@import "footer.scss";
 * {
   box-sizing: border-box;
   padding: 0;
