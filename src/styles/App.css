@@ -232,13 +232,24 @@ table {
   border-radius: 5px;
 }
 
+.my-rep-charts {
+  position: relative;
+  width: 200px;
+  height: 175px;
+}
+
 @media (max-width: 800px) {
   .left-nav {
-    width: 90px;
+    width: 135px;
   }
   .see-votes {
     width: 80px;
-    height: 50px;
+    height: 40px;
+  }
+  .my-rep-charts {
+    position: relative;
+    width: 135px;
+    height: 300px;
   }
 }
 
@@ -369,6 +380,7 @@ table {
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
+    margin-left: 20%;
   }
   .dash .main-charts {
     display: -webkit-box;
@@ -394,6 +406,11 @@ table {
             box-shadow: 2px 3px 3px #00000049;
     border-radius: 5px;
   }
+  .dash .main-charts .house-chart {
+    position: relative;
+    width: 200px;
+    height: 220;
+  }
   .dash .main-charts .close-btn {
     height: 25px;
     width: 100px;
@@ -402,6 +419,11 @@ table {
     -webkit-box-shadow: 2px 3px 3px #00000049;
             box-shadow: 2px 3px 3px #00000049;
     border-radius: 5px;
+  }
+  .dash .main-charts .full-d {
+    height: 500px;
+    width: 700px;
+    border: 1px solid black;
   }
 }
 
@@ -419,23 +441,5 @@ table {
       -ms-flex-align: end;
           align-items: flex-end;
   z-index: 1;
-}
-
-@media (max-width: 800px) {
-  .footer-info {
-    font-size: .7rem;
-    width: 90%;
-    margin-top: 180px;
-    height: 5vh;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-  }
 }
 /*# sourceMappingURL=App.css.map */

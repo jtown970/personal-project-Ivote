@@ -16,12 +16,24 @@
   border-radius: 5px;
 }
 
+.my-rep-charts{
+  position: relative;
+  width: 200px;
+  height: 175px;
+}
+
 @media (max-width: 800px){
   .left-nav {
-    width: 90px;
+    width: 135px;
   }
   .see-votes {
     width: 80px;
-    height: 50px;
+    height: 40px;
+  }
+
+  .my-rep-charts{
+    position: relative;
+    width: 135px;
+    height: 300px;
   }
 }

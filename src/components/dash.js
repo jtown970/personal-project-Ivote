@@ -62,8 +62,9 @@ class Dash extends Component {
           <button className="close-btn" onClick={() => this.isVoting()} >view</button>
         ) : (
           <div>
-
-            <p>{elem.full_description}</p>
+            <div className="full-d">
+              <p >{elem.full_description}</p>
+            </div>
             <div className="check-box">
             <span>YES:</span>
               <input type="checkbox" onChange={() => this.setState({vote_yes: true,users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
