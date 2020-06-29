@@ -1,0 +1,60 @@
+$button-color: red;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.welcome-text {
+  padding-top: 5%;
+  color: rgb(34, 34, 34);
+  font-size: 1.3rem;
+}
+.navigation {
+  height: 50px;
+  width: 100vw;
+  background-color: rgb(131, 131, 131);
+
+  .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 3%;
+  }
+
+  .nav-items-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-name {
+    margin-right: 10%;
+  }
+
+  .name {
+    color: rgb(240, 140, 207);
+  }
+}
+.logout-btn-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logout-btn {
+  color: $buttonColor;
+  text-decoration: none!important;
+  height: 25px;
+  width: 80px;
+  margin: 5px;
+  padding: 1px;
+  box-shadow: 1px 2px 3px #00000036;
+  border-radius: 5px;
+
+  .log-btn {
+    text-decoration: none!important;
+    color: black;
+  }
+  
+}

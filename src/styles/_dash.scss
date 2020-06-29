@@ -1,0 +1,59 @@
+
+@mixin displayFlex($justify, $align, $flexFlow){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-flow: $flexFlow;
+}
+
+.dash {
+  @include displayFlex(center, center, column);
+  margin: auto;
+  width: 80%;
+  height: 70%;
+
+  .items-list {
+    @include displayFlex(center, center, column);
+
+    text-align: center;
+    width: 80%;
+    margin:  10px auto;
+    color: rgb(53, 53, 53);
+  }
+
+}
+.main-charts {
+  @include displayFlex(flex-end, flex-end, row);
+  // width: 40vw;
+  // height: 30vh;
+  margin: auto;
+
+   .see-charts {
+     height: 25px;
+     width: 200px;
+     margin: 5px;
+     padding: 1px;
+     box-shadow: 2px 3px 3px #00000049;
+     border-radius: 5px;
+   }
+
+    
+   .cast-votes {
+  @include displayFlex(center, center, column);
+   }
+}
+
+@media (max-width: 800){
+ .dash {
+  .see-charts {
+    height: 25px;
+    width: 200px;
+    margin: 5px;
+    padding: 1px;
+    box-shadow: 2px 3px 3px #00000049;
+    border-radius: 5px;
+  }
+ }
+}
+
+
