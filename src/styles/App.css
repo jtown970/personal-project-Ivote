@@ -281,6 +281,12 @@ table {
   color: #353535;
 }
 
+.dash .house-chart {
+  position: relative;
+  width: 170;
+  height: 220;
+}
+
 .main-charts {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -308,7 +314,17 @@ table {
   border-radius: 5px;
 }
 
-.main-charts .cast-votes {
+.main-charts .close-btn {
+  height: 25px;
+  width: 200px;
+  margin: 5px;
+  padding: 1px;
+  -webkit-box-shadow: 2px 3px 3px #00000049;
+          box-shadow: 2px 3px 3px #00000049;
+  border-radius: 5px;
+}
+
+.cast-votes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,10 +340,63 @@ table {
           flex-flow: column;
 }
 
-@media (max-width: 800) {
-  .dash .see-charts {
+.check-box {
+  margin: 10px;
+}
+
+.close-btn {
+  height: 25px;
+  width: 100px;
+  margin: 5px;
+  padding: 1px;
+  -webkit-box-shadow: 2px 3px 3px #00000049;
+          box-shadow: 2px 3px 3px #00000049;
+  border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+  .dash {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  .dash .main-charts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+  .dash .main-charts .see-charts {
     height: 25px;
-    width: 200px;
+    width: 150px;
+    margin: 5px;
+    padding: 1px;
+    -webkit-box-shadow: 2px 3px 3px #00000049;
+            box-shadow: 2px 3px 3px #00000049;
+    border-radius: 5px;
+  }
+  .dash .main-charts .close-btn {
+    height: 25px;
+    width: 100px;
     margin: 5px;
     padding: 1px;
     -webkit-box-shadow: 2px 3px 3px #00000049;
@@ -350,5 +419,23 @@ table {
       -ms-flex-align: end;
           align-items: flex-end;
   z-index: 1;
+}
+
+@media (max-width: 800px) {
+  .footer-info {
+    font-size: .7rem;
+    width: 90%;
+    margin-top: 180px;
+    height: 5vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
 }
 /*# sourceMappingURL=App.css.map */

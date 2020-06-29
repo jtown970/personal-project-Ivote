@@ -248,7 +248,7 @@ import axios from 'axios';
         {!this.state.seeHouseVotes ? (
           <button className="see-charts" onClick={() => this.seeHouseVotes()}>All House Votes</button>
           ) : (
-            <div className="house-chart" style={{position: "relative", width: 170, height:220}}>  
+            <div className="house-chart" >  
               <div className="all-house-yes-chart yes-chart">
                 <Bar
                   data={this.state.chartData1}
@@ -296,7 +296,7 @@ import axios from 'axios';
                   }}
                   />
               </div>
-              <button onClick={() => this.seeHouseVotes()}>close</button>
+              <button className="close-btn" onClick={() => this.seeHouseVotes()}>close</button>
             </div>
           )}
         {/* end of see house votes button */}
@@ -307,7 +307,7 @@ import axios from 'axios';
           {!this.state.seeAllUserVotes ? (
           <button className="see-charts" onClick={() => this.seeAllUserVotes()}>All User Votes</button>
             ) : (
-              <div className="all-users-charts" style={{position: "relative", width: 170, height:220}}>
+              <div className="all-users-charts house-chart">
                 <div className="all-users-yes-chart yes-chart">
                   <Bar
                     data={this.state.chartData3}
@@ -355,14 +355,14 @@ import axios from 'axios';
                    }}
                  />
                </div>
-               <button onClick={() => this.seeAllUserVotes()}>close</button>
+               <button className="close-btn" onClick={() => this.seeAllUserVotes()}>close</button>
              </div>
             )}
 
             {!this.state.seeSessionVotes ? (
               <button className="see-charts" onClick={() => this.seeSessionVotes()}>Your Votes</button>
             ) : (
-              <div className="all-session-votes" style={{position: "relative", width: 170, height:220}}>
+              <div className="all-session-votes house-chart">
                 {/* user session chart yes votes */}
                 <div className="all-users-session-yes-chart no-chart">
                   <Bar

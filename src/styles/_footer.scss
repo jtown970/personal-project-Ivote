@@ -7,3 +7,15 @@
   align-items: flex-end;
   z-index: 1;
 }
+
+@media (max-width: 800px){
+  .footer-info {
+    font-size: .7rem;
+    width: 90%;
+    margin-top: 180px;
+    height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}

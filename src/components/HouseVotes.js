@@ -167,7 +167,8 @@ class HouseVotes extends Component {
                                     }
                                 }}
                                 />
-                    <button onClick={() => this.seeHouseVotes()}>close</button>
+                                <p>{rep.rep_name}</p>
+                    <button className="close-btn" onClick={() => this.seeHouseVotes()}>close</button>
 
                             </div> 
               </div>

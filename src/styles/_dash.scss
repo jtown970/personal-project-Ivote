@@ -1,10 +1,4 @@
 
-@mixin displayFlex($justify, $align, $flexFlow){
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-  flex-flow: $flexFlow;
-}
 
 .dash {
   @include displayFlex(center, center, column);
@@ -21,11 +15,15 @@
     color: rgb(53, 53, 53);
   }
 
+  .house-chart {
+    position: relative;
+    width: 170;
+    height: 220;
+  }
+
 }
 .main-charts {
   @include displayFlex(flex-end, flex-end, row);
-  // width: 40vw;
-  // height: 30vh;
   margin: auto;
 
    .see-charts {
@@ -36,24 +34,73 @@
      box-shadow: 2px 3px 3px #00000049;
      border-radius: 5px;
    }
-
-    
-   .cast-votes {
-  @include displayFlex(center, center, column);
-   }
-}
-
-@media (max-width: 800){
- .dash {
-  .see-charts {
+   .close-btn {
     height: 25px;
     width: 200px;
     margin: 5px;
     padding: 1px;
     box-shadow: 2px 3px 3px #00000049;
     border-radius: 5px;
+   }
+}
+
+.cast-votes {
+  @include displayFlex(center, center, column);
+   }
+ 
+.check-box {
+  margin: 10px;
+}
+
+.close-btn {
+  height: 25px;
+  width: 100px;
+  margin: 5px;
+  padding: 1px;
+  box-shadow: 2px 3px 3px #00000049;
+  border-radius: 5px;
+}
+
+.dash{
+  @media (max-width: 800px){
+    @include displayFlex(flex-end, flex-end, column);
+
+
+    .main-charts {
+      @include displayFlex(flex-end, flex-end, column);
+      // margin: auto;
+    
+       .see-charts {
+         height: 25px;
+         width: 150px;
+         margin: 5px;
+         padding: 1px;
+         box-shadow: 2px 3px 3px #00000049;
+         border-radius: 5px;
+       }
+       .close-btn {
+        height: 25px;
+        width: 100px;
+        margin: 5px;
+        padding: 1px;
+        box-shadow: 2px 3px 3px #00000049;
+        border-radius: 5px;
+       }
+    }
+    // .items-list {
+    //   // height: 600px;
+    //   width: 80%;
+    //   margin: auto; 
+    // }
+    // .see-charts {
+    //   height: 25px;
+    //   width: 150px;
+    //   // margin: 5px;
+    //   padding: 1px;
+    //   box-shadow: 2px 3px 3px #00000049;
+    //   border-radius: 5px;
+    // }
   }
- }
 }
 
 

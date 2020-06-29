@@ -59,22 +59,25 @@ class Dash extends Component {
         <div>{elem.item_name}</div>
         <div>{elem.description}</div>
         {!this.state.isVoting ? (
-          <button onClick={() => this.isVoting()} >view</button>
+          <button className="close-btn" onClick={() => this.isVoting()} >view</button>
         ) : (
           <div>
 
             <p>{elem.full_description}</p>
+            <div className="check-box">
             <span>YES:</span>
               <input type="checkbox" onChange={() => this.setState({vote_yes: true,users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
             <span>NO:</span>
               <input type="checkbox" onChange={() => this.setState({vote_yes: false, users_id: this.props.auth.user.user_id, item_id: elem.item_id})}/>
+              </div>
+              <div className="cast-votes">
               <button 
+              className="close-btn"
               onClick={
                 () => this.handleCastVote()
               }>Cast Vote</button>
             {/* <p> hello testing toggle</p> */}
-                  <div className="cast-votes">
-            <button onClick={() => this.isVoting()}>Close</button>
+            <button className="close-btn" onClick={() => this.isVoting()}>Close</button>
             </div>
           </div>
         )}
