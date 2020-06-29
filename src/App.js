@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/App.scss';
+import './styles/App.css';
 import routes from './routes'
 import Nav from './components/Nav'
 import LeftNav from './components/LeftNav'
@@ -18,7 +18,8 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <Nav  />
+
+        <Nav />
         <LeftNav/>
         {routes}
         <Footer/>

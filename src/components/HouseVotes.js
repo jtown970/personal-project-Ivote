@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import '../styles/leftNav.scss'
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux';
 import {getHouse, sumAllHouseYes, sumAllHouseNo, houseMembers} from '../redux/houseReducer';

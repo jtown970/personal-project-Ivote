@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../styles/graph.scss'
 import Dash from './Dash'
 import {Bar} from 'react-chartjs-2'
 import {connect} from 'react-redux'

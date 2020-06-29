@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import '../styles/dash.scss'
 import {connect} from 'react-redux'
-import HouseVotes from './HouseVotes'
 import axios from 'axios'
 import Graph from './Graph'
-import {Bar} from 'react-chartjs-2'
 import {getUser} from '../redux/authReducer'
 import {addUserVote} from '../redux/userReducer'
 

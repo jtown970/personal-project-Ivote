@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import '../styles/login.scss'
 import { connect } from 'react-redux'
 import {loginUser} from '../redux/authReducer'
 import {registerUser} from '../redux/authReducer'
@@ -63,58 +62,59 @@ import {registerUser} from '../redux/authReducer'
     return (
       <div className="login-form">
         <form onSubmit={(e) => this.login(e)} >
-          <input 
-            className="input-field"
-            type="text"
-            placeholder="username...."
-            name="user_name"
-            value={user_name}
-            onChange={e => this.changeHandler(e)} />
-          <input 
-            className="input-field"
-            type="password"
-            placeholder="password..."
-            name="password"
-            value={password}
-            onChange={e => this.changeHandler(e)} />
-          {!this.state.isRegistering?(
-          <div>
-            <p>Enter State to Register</p>
-            <button 
-            className="state-btn"
-            onMouseEnter={e => this.toggleRegister()} 
-            // onMouseLeave={e => this.toggleRegister()} 
-             >Hover to add State</button>
-          </div>
-          ):(
-          <div>
+          <div className="inner-form">
             <input 
-            className="input-field"
-            type="text"
-            placeholder="State..."
-            name="location"
-            value={location}
-            onChange={e => this.changeHandler(e)}/>
+              className="input-field"
+              type="text"
+              placeholder="username...."
+              name="user_name"
+              value={user_name}
+              onChange={e => this.changeHandler(e)} />
+            <input 
+              className="input-field"
+              type="password"
+              placeholder="password..."
+              name="password"
+              value={password}
+              onChange={e => this.changeHandler(e)} />
+            {!this.state.isRegistering?(
+            <div>
+              <p>Enter State to Register</p>
+              <button 
+              className="state-btn"
+              onMouseEnter={e => this.toggleRegister()} 
+              // onMouseLeave={e => this.toggleRegister()} 
+              >Hover to add State</button>
+            </div>
+            ):(
+            <div>
+              <input 
+              className="input-field"
+              type="text"
+              placeholder="State..."
+              name="location"
+              value={location}
+              onChange={e => this.changeHandler(e)}/>
+            </div>
+            )}
+            {/* <input 
+              className="input-field"
+              type="text"
+              placeholder="State..."
+              name="location"
+              value={location}
+              onChange={e => this.changeHandler(e)}/> */}
+            <button 
+              className="login-btn"
+              type="submit"
+              value="Login"
+              onClick={this.login} >Login</button>
+            <button 
+              className="login-btn"
+              type="submit"
+              value="register"
+              onClick={this.register} >Register</button>
           </div>
-          )}
-          {/* <input 
-            className="input-field"
-            type="text"
-            placeholder="State..."
-            name="location"
-            value={location}
-            onChange={e => this.changeHandler(e)}/> */}
-          <button 
-            className="login-btn"
-            type="submit"
-            value="Login"
-            onClick={this.login} >Login</button>
-          <button 
-            className="login-btn"
-            type="submit"
-            value="register"
-            onClick={this.register} >Register</button>
-
         </form>
       </div>
     )

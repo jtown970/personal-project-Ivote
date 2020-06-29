@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/App.scss'
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser} from '../redux/authReducer'
