@@ -98,13 +98,6 @@ import {registerUser} from '../redux/authReducer'
               onChange={e => this.changeHandler(e)}/>
             </div>
             )}
-            {/* <input 
-              className="input-field"
-              type="text"
-              placeholder="State..."
-              name="location"
-              value={location}
-              onChange={e => this.changeHandler(e)}/> */}
             <button 
               className="login-btn"
               type="submit"

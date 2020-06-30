@@ -90,7 +90,7 @@ class Dash extends Component {
       <div className="dash">
         {/* <HouseVotes/> */}
         <div className="title">
-         <h1 className="title">Compair votes</h1>
+         <h1 className="title">Compare Votes</h1>
         </div>
         <Graph/>
         {itemsMap}
