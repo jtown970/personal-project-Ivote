@@ -74,7 +74,7 @@ function closeModal(modal) {
 
 <div class="third">
       <h2 class="right">AZ house Reps</h2>
-      <button class="btn btn-background-circle" data-modal-target="#modal2">View</button>
+      <button class="btn btn-background-circle see-votes" data-modal-target="#modal2">View</button>
       <div class="modal" id="modal2">
         <div class="modal-header">
           <div class="title">Your House Reps</div>

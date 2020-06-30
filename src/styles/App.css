@@ -231,8 +231,7 @@ table {
   z-index: 10;
   background-image: -webkit-gradient(linear, left top, right top, from(#d7d2cc), to(#888e92));
   background-image: linear-gradient(to right, #d7d2cc 0%, #888e92 100%);
-  width: 500px;
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .modal.active {
@@ -300,6 +299,12 @@ table {
   border-radius: 5px;
 }
 
+@media (max-width: 800px) {
+  .modal {
+    width: 90%;
+  }
+}
+
 .title {
   font-size: 2rem;
   margin-top: 30px;
@@ -341,7 +346,7 @@ table {
           flex-flow: column;
   text-align: center;
   color: #353535;
-  font-size: .8rem;
+  font-size: 1rem;
   position: relative;
 }
 
@@ -434,6 +439,9 @@ table {
         -ms-flex-flow: column;
             flex-flow: column;
     margin-left: 20%;
+  }
+  .dash .items-list {
+    font-size: .6rem;
   }
   .dash .main-charts {
     display: -webkit-box;

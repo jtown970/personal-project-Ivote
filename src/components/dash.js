@@ -94,8 +94,30 @@ class Dash extends Component {
          <h1 className="title">Compare Votes</h1>
         </div>
         <Graph/>
-        {itemsMap}
+        {/* {itemsMap} */}
         {/* dash Component */}
+        {/* start of popup */}
+        <div class="fouth">
+      <h2 class="right">Start Voting</h2>
+      <button class="btn btn-background-circle see-votes" data-modal-target="#modal3">View</button>
+      <div class="modal" id="modal3">
+        <div class="modal-header">
+          <div class="title">Bills to vote on</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="newbody">
+          <div class="hours">
+          <div className="left-nav">
+          {itemsMap}
+       </div>
+          </div>
+        </div>
+      </div>
+      <div id="overlay"></div>
+
+    </div>
+
+        {/* end of popup  */}
       </div>
     )
   }

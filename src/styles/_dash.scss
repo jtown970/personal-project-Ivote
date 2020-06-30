@@ -18,7 +18,7 @@
     // margin:  10px auto;
     // padding: 30px;
     color: rgb(53, 53, 53);
-    font-size: .8rem;
+    font-size: 1rem;
     position: relative;
   }
 
@@ -76,6 +76,9 @@
   @media (max-width: 800px){
     @include displayFlex(flex-end, flex-end, column);
     margin-left: 20%;
+    .items-list{
+      font-size: .6rem;
+    }
 
 
     .main-charts {
