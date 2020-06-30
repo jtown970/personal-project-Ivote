@@ -9,7 +9,7 @@
   margin: auto;
   width: 60%;
   height: 85%;
-  border: 1px solid blue;
+  // border: 1px solid blue;
 
   .items-list {
     @include displayFlex(center, center, column);
@@ -32,6 +32,7 @@
 .main-charts {
   @include displayFlex(flex-end, flex-end, row);
   margin: auto;
+  
 
    .see-charts {
      height: 25px;
