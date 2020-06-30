@@ -213,13 +213,81 @@ table {
   color: black;
 }
 
-.left-nav {
-  height: 100vh;
-  width: 200px;
-  right: 1;
+*, *::after, *::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.modal {
   position: fixed;
-  background-color: #838383;
-  padding-top: 6%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-transition: 400ms ease-in-out;
+  transition: 400ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  background-image: -webkit-gradient(linear, left top, right top, from(#d7d2cc), to(#888e92));
+  background-image: linear-gradient(to right, #d7d2cc 0%, #888e92 100%);
+  width: 500px;
+  max-width: 80%;
+}
+
+.modal.active {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  padding: 10px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  -webkit-transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 .see-votes {
@@ -230,27 +298,6 @@ table {
   -webkit-box-shadow: 2px 3px 3px #00000049;
           box-shadow: 2px 3px 3px #00000049;
   border-radius: 5px;
-}
-
-.my-rep-charts {
-  position: relative;
-  width: 200px;
-  height: 175px;
-}
-
-@media (max-width: 800px) {
-  .left-nav {
-    width: 135px;
-  }
-  .see-votes {
-    width: 80px;
-    height: 40px;
-  }
-  .my-rep-charts {
-    position: relative;
-    width: 135px;
-    height: 300px;
-  }
 }
 
 .title {

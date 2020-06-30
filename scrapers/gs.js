@@ -84,10 +84,10 @@ const puppeteer = require('puppeteer');
    )
 
 
-  // console.log(h1);
-  // console.log(overViewSection);
-  // console.log(yes);
-  // console.log(no);
+  console.log(h1);
+  console.log(overViewSection);
+  console.log(yes);
+  console.log(no);
   // console.log(h2);
   // console.log(yesVotes);
   // console.log(yesVoters);
@@ -99,6 +99,6 @@ const puppeteer = require('puppeteer');
   // console.log(abstainVoters);
   // console.log(abstainVotersDist);
   // console.log(...result);
-  console.log(yesVoteTest);
+  // console.log(yesVoteTest);
   await browser.close();
 })();

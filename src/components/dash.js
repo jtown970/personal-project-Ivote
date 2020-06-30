@@ -14,7 +14,8 @@ class Dash extends Component {
       item_id: null,
       users_id: 0,
       vote_yes: null,
-      castVote: false
+      castVote: false,
+      item: null
     }
     this.allItems = this.allItems.bind(this)
   }
