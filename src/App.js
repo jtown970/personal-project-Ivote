@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
 
         <Nav />
-        <LeftNav/>
+        {/* <LeftNav/> */}
         {routes}
         <Footer/>
         {/* <Dash/> */}

@@ -1,3 +1,4 @@
+
 .title {
   font-size: 2rem;
   margin-top: 30px;
@@ -7,17 +8,12 @@
   @include displayFlex(center, center, column);
   float: center;
   margin: auto;
-  width: 60%;
+  width: 100%;
   height: 85%;
-  // border: 1px solid blue;
 
   .items-list {
     @include displayFlex(center, center, column);
     text-align: center;
-    // width: 80%;
-    // margin:  10px auto;
-    // padding: 30px;
-    color: rgb(53, 53, 53);
     font-size: 1rem;
     position: relative;
   }
@@ -32,7 +28,6 @@
 .main-charts {
   @include displayFlex(flex-end, flex-end, row);
   margin: auto;
-  
 
    .see-charts {
      height: 25px;
@@ -50,7 +45,6 @@
     box-shadow: 2px 3px 3px #00000049;
     border-radius: 5px;
    }
-
 }
 
 .cast-votes {

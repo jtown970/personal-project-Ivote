@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
 import Graph from './Graph'
+import LeftNav from './LeftNav'
 import {getUser} from '../redux/authReducer'
 import {addUserVote} from '../redux/userReducer'
 
@@ -79,7 +80,6 @@ class Dash extends Component {
               onClick={
                 () => this.handleCastVote()
               }>Cast Vote</button>
-            {/* <p> hello testing toggle</p> */}
             <button className="close-btn" onClick={() => this.isVoting()}>Close</button>
             </div>
           </div>
@@ -94,8 +94,8 @@ class Dash extends Component {
          <h1 className="title">Compare Votes</h1>
         </div>
         <Graph/>
-        {/* {itemsMap} */}
-        {/* dash Component */}
+        <LeftNav/>
+
         {/* start of popup */}
         <div class="fouth">
       <h2 class="right">Start Voting</h2>

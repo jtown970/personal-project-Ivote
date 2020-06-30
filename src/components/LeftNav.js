@@ -9,7 +9,7 @@ import {getUser} from '../redux/authReducer'
 
  function LeftNav(props) {
 
-// testing pop up
+// pop up
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
@@ -35,13 +35,6 @@ openModalButtons.forEach(button => {
   })
 })
 
-// overlay.addEventListener('click', () => {
-//   const modals = document.querySelectorAll('.modal.active')
-//   modals.forEach(modal => {
-//     closeModal(modal)
-//   })
-// })
-
 closeModalButtons.forEach(button => {
   button.addEventListener('click', () => {
     const modal = button.closest('.modal')
@@ -61,12 +54,6 @@ function closeModal(modal) {
   overlay.classList.remove('active')
 }
 // end of pop up
-
-
-
-
-
-
 
   if(props.location.pathname !== '/'){
     // console.log(props.auth.user.user_name)
@@ -93,25 +80,12 @@ function closeModal(modal) {
       <div id="overlay"></div>
 
     </div>
-
-
-
-// good old code below
-      // <div className="left-nav">
-      //   <p>House Reps</p>
-      //   <p>AZ</p>
-      //   <HouseVotes/>
-      // </div>
     )  
 
   } else {
     return ""
   }
 }
-
-// function mapStateToProps (reduxState) {
-//   return (reduxState)
-// }
 
 const mapStateToProps = state => state
 export default withRouter(connect(mapStateToProps, {getUser})(LeftNav))
