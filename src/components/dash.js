@@ -64,6 +64,7 @@ class Dash extends Component {
           <div>
             <div className="full-d">
               <p >{elem.full_description}</p>
+              <ol >(view <a href={"https://www.congress.gov/bill/116th-congress/house-bill/6172/summary/00"}>Source)</a></ol>
             </div>
             <div className="check-box">
             <span>YES:</span>
@@ -88,6 +89,9 @@ class Dash extends Component {
     return (
       <div className="dash">
         {/* <HouseVotes/> */}
+        <div className="title">
+         <h1 className="title">Compair votes</h1>
+        </div>
         <Graph/>
         {itemsMap}
         {/* dash Component */}

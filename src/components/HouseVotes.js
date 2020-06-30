@@ -180,6 +180,8 @@ class HouseVotes extends Component {
         })
         
         return (
+
+
             <div className='houseMapping'>
                 {repMap}
                 

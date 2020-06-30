@@ -63,8 +63,8 @@ table {
   height: 100vh;
   width: 100vw;
   text-align: center;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#9357bd), to(#8483f4));
-  background-image: linear-gradient(#9357bd, #8483f4);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#969595), to(#e7e7e7));
+  background-image: linear-gradient(#969595, #e7e7e7);
 }
 
 .login-form {
@@ -253,6 +253,11 @@ table {
   }
 }
 
+.title {
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
 .dash {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -267,9 +272,11 @@ table {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
+  float: center;
   margin: auto;
-  width: 80%;
-  height: 70%;
+  width: 60%;
+  height: 85%;
+  border: 1px solid blue;
 }
 
 .dash .items-list {
@@ -287,9 +294,9 @@ table {
       -ms-flex-flow: column;
           flex-flow: column;
   text-align: center;
-  width: 80%;
-  margin: 10px auto;
   color: #353535;
+  font-size: .8rem;
+  position: relative;
 }
 
 .dash .house-chart {
@@ -430,7 +437,7 @@ table {
 .footer-info {
   font-size: .7rem;
   width: 100%;
-  height: 15vh;
+  height: 5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
