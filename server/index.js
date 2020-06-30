@@ -11,6 +11,8 @@ const express = require('express'),
       {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env,
       app = express();
 
+app.use(express.static(`${__dirname}/../build`)); // note need to this to do yarn run build
+
 app.use(express.json())
 app.use(
   session({
