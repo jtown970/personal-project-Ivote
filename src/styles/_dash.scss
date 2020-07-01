@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 .title {
   font-size: 2rem;
   margin-top: 30px;
@@ -8,7 +10,7 @@
   @include displayFlex(center, center, column);
   float: center;
   margin: auto;
-  width: 100%;
+  width: 100vw;
   height: 85%;
 
   .items-list {
@@ -26,7 +28,7 @@
 
 }
 .main-charts {
-  @include displayFlex(flex-end, flex-end, row);
+  @include displayFlex(center, center, row);
   margin: auto;
 
    .see-charts {
@@ -68,16 +70,18 @@
 
 .dash{
   @media (max-width: 800px){
-    @include displayFlex(flex-end, flex-end, column);
-    margin-left: 20%;
+    @include displayFlex(center, center, column);
+    width: 100vw;
+    // margin-left: 20%;
     .items-list{
       font-size: .6rem;
     }
 
 
     .main-charts {
-      @include displayFlex(flex-end, flex-end, column);
+      @include displayFlex(center, center, column);
       // margin: auto;
+      width: 100vw;
     
        .see-charts {
          height: 25px;
