@@ -38,6 +38,7 @@ class HouseVotes extends Component {
         if(prevState.eId !== this.state.eId){
           this.getHouseRepVotes()
           this.getHouseRepVotesNo()
+          this.props.getUser()
         //   console.log('props have changed');
         }
       }
@@ -46,6 +47,7 @@ class HouseVotes extends Component {
         this.props.houseMembers()
         this.getHouseRepVotes()
         this.getHouseRepVotesNo()
+        this.props.getUser()
     }
 
     seeHouseVotes(){
