@@ -38,7 +38,7 @@ class HouseVotes extends Component {
         if(prevState.eId !== this.state.eId){
           this.getHouseRepVotes()
           this.getHouseRepVotesNo()
-          console.log('props have changed');
+        //   console.log('props have changed');
         }
       }
 
@@ -58,7 +58,7 @@ class HouseVotes extends Component {
     let yes = [];
     axios.get(`/house/sum/${this.state.eId}`)
         .then(res => { 
-            console.log(res.data)
+            // console.log(res.data)
             
                 yes.push(parseInt(res.data.count))
 
@@ -78,14 +78,14 @@ class HouseVotes extends Component {
             }
             });
         })
-        console.log(yes)
+        // console.log(yes)
     }
 
     getHouseRepVotesNo(){
         let yes = [];
         axios.get(`/house/no/vote/${this.state.eId}`)
             .then(res => { 
-                console.log(res.data)
+                // console.log(res.data)
                 
                     yes.push(parseInt(res.data.count))
     
@@ -105,7 +105,7 @@ class HouseVotes extends Component {
                 }
                 });
             })
-            console.log(yes)
+            // console.log(yes)
         }
 
 

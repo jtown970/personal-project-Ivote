@@ -8,7 +8,7 @@ import {getUser} from '../redux/authReducer'
 
  function Nav(props) {
   if(props.location.pathname !== '/'){
-    console.log(props.auth.user.user_name)
+    // console.log(props.auth.user.user_name)
     return (
       <div className="navigation">
         <section className="nav-list" >

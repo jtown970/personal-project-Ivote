@@ -97,16 +97,16 @@ class Dash extends Component {
         <LeftNav/>
 
         {/* start of popup */}
-        <div class="fouth">
-      <h2 class="right">Start Voting</h2>
-      <button class="btn btn-background-circle see-votes" data-modal-target="#modal3">View</button>
-      <div class="modal" id="modal3">
-        <div class="modal-header">
-          <div class="title">Bills to vote on</div>
-          <button data-close-button class="close-button">&times;</button>
+        <div className="fouth">
+      <h2 className="right">Start Voting</h2>
+      <button className="btn btn-background-circle see-votes" data-modal-target="#modal3">View</button>
+      <div className="modal" id="modal3">
+        <div className="modal-header">
+          <div className="title">Bills to vote on</div>
+          <button data-close-button className="close-button">&times;</button>
         </div>
-        <div class="newbody">
-          <div class="hours">
+        <div className="newbody">
+          <div className="hours">
           <div className="left-nav">
           {itemsMap}
        </div>

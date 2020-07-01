@@ -186,10 +186,10 @@ import axios from 'axios';
     let userYes = [];
     axios.get(`/user/sum/vote/:id`)
     .then(res => {
-      console.log(res)
+      // console.log(res)
       for(const dataObj of res.data){
         userYes.push(parseInt(dataObj.count))
-        console.log(dataObj.count)
+        // console.log(dataObj.count)
       }
       this.setState({
         chartData5:{
