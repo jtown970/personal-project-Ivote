@@ -5,9 +5,9 @@ const initialState = {
   user: {},
   isLoggedIn: false,
   registering: false,
-  user_name: '',
+  // user_name: '',
   // password: '',
-  location: ''
+  // location: ''
 
 }
 
@@ -17,17 +17,17 @@ const LOGOUT_USER = 'LOGOUT_USER'
 const GET_USER = 'GET_USER'
 
 
-export function registerUser(auth){
+export function registerUser(user){
   return {
     type: REGISTER_USER,
-    payload: auth
+    payload: user
   }
 }
 
-export function loginUser(auth){
+export function loginUser(user){
   return {
     type: LOGIN_USER,
-    payload: auth
+    payload: user
   }
 }
 
@@ -53,7 +53,6 @@ export default function (state = initialState, action){
       return {...state, user:action.payload, user:action.payload.user_name, user:action.payload.location, isLoggedIn: true}
     case LOGIN_USER:
       return {...state, user: action.payload, isLoggedIn: true}
-
     case GET_USER + "_PENDING":
         return state
     case GET_USER + "_FULFILLED":

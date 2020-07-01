@@ -45,8 +45,16 @@ export function sumAllHouseNo(){
 
 export default function (state = initialState, action){
   switch(action.type){
-      case GET_HOUSE:
-          return {...state, houseVotes: action.payload}
+      // case GET_HOUSE:
+      //     return {...state, houseVotes: action.payload}
+      // testing get house
+      // case GET_HOUSE + "_PENDING":
+      //   return state
+      // case GET_HOUSE + "_FULFILLED":
+      //   return {...state, houseVotes: action.payload}
+      // case GET_HOUSE + "_REJECTED":
+      //   return state
+      //testing get house 
       // all yes house votes
       case SUM_HOUSE_YES_VOTES + "_PENDING":
         return state

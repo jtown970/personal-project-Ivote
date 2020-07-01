@@ -30,6 +30,7 @@ import axios from 'axios';
 
   componentDidMount(){
     this.handleChartVotes()
+    this.props.getUser()
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -46,7 +47,7 @@ import axios from 'axios';
     this.getChartAllUserNoVotes();
     this.getChartAllUserYesVotesSession();
     this.getChartAllUserNoVotesSession();
-    // this.props.getUser()
+    this.props.getUser()
   }
 
   seeHouseVotes(){
