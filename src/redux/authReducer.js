@@ -50,7 +50,7 @@ export function getUser(){
 export default function (state = initialState, action){
   switch(action.type){
     case REGISTER_USER:
-      return {...state, auth:action.payload, user_name:action.payload.user_name, location:action.payload.location, isLoggedIn: true}
+      return {...state, user:action.payload, user:action.payload.user_name, user:action.payload.location, isLoggedIn: true}
     case LOGIN_USER:
       return {...state, user: action.payload, isLoggedIn: true}
 
