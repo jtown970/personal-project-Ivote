@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/App.css';
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
+import {logoutUser} from '../redux/authReducer'
 import {getUser} from '../redux/authReducer'
 
 
@@ -18,7 +19,7 @@ import {getUser} from '../redux/authReducer'
            <p className="user-name" >{props.auth.user.user_name}</p>
            <div className="logout-btn-top">
             <button className="logout-btn">
-              <Link className="log-btn" to="/">Logout</Link>
+              <Link className="log-btn" onClick={() => props.logoutUser()} to="/">Logout</Link>
             </button>
             </div>
           </div>
@@ -36,4 +37,5 @@ import {getUser} from '../redux/authReducer'
 // }
 
 const mapStateToProps = state => state
-export default withRouter(connect(mapStateToProps, {getUser})(Nav))
+const mapDispatchToProps = {logoutUser, getUser}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav))

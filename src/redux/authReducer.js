@@ -5,9 +5,9 @@ const initialState = {
   user: {},
   isLoggedIn: false,
   registering: false,
-  // user_name: '',
-  // password: '',
-  // location: ''
+  user_name: '',
+  password: '',
+  location: ''
 
 }
 
@@ -54,7 +54,7 @@ export default function (state = initialState, action){
     case LOGIN_USER:
       return {...state, user: action.payload, isLoggedIn: true}
     case LOGOUT_USER:
-      return initialState
+      return {isLoggedIn: false}
     case GET_USER + "_PENDING":
         return state
     case GET_USER + "_FULFILLED":
