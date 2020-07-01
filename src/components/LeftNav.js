@@ -60,15 +60,15 @@ function closeModal(modal) {
     return (
 
 <div class="third">
-      <h2 class="right">AZ house Reps</h2>
-      <button class="btn btn-background-circle see-votes" data-modal-target="#modal2">View</button>
-      <div class="modal" id="modal2">
-        <div class="modal-header">
-          <div class="title">Your House Reps</div>
-          <button data-close-button class="close-button">&times;</button>
+      <h2 className="right">AZ house Reps</h2>
+      <button className="btn btn-background-circle see-votes" data-modal-target="#modal2">View</button>
+      <div className="modal" id="modal2">
+        <div className="modal-header">
+          <div className="title">Your House Reps</div>
+          <button data-close-button className="close-button">&times;</button>
         </div>
-        <div class="newbody">
-          <div class="hours">
+        <div className="newbody">
+          <div className="hours">
           <div className="left-nav">
          <p>House Reps</p>
          <p>AZ</p>
