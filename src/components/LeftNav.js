@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/App.css';
 import HouseVotes from './HouseVotes'
-import {withRouter, Link} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getUser} from '../redux/authReducer'
 
