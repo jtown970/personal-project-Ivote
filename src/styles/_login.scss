@@ -34,6 +34,7 @@
     padding: 1px;
     box-shadow: 2px 3px 3px #00000049;
     border-radius: 5px;
+    background: $buttonColor;
   }
   
   
@@ -44,5 +45,17 @@
     padding: 1px;
     box-shadow: 2px 3px 3px #00000049;
     border-radius: 5px;
+    background: $buttonColor;
+  }
+}
+
+// tablet view
+.login-form {
+  @media (max-width: 800px){
+    .inner-form{
+      border: 1px solid black;
+      @include displayFlex(center, center, column);
+      width: 90vw;
+    }
   }
 }
