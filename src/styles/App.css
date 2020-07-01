@@ -171,9 +171,11 @@ table {
 }
 
 .welcome-text {
-  padding-top: 5%;
+  text-align: center;
+  padding-top: 10%;
   color: #222222;
-  font-size: 1.3rem;
+  font-size: 3rem;
+  font-family: monospace;
 }
 
 .navigation {
@@ -246,6 +248,26 @@ table {
 .logout-btn .log-btn {
   text-decoration: none !important;
   color: black;
+}
+
+@media (max-width: 800px) {
+  .welcome-text {
+    text-align: center;
+    padding-top: 10%;
+    color: #222222;
+    font-size: 2.3rem;
+    font-family: monospace;
+  }
+}
+
+@media (max-width: 500px) {
+  .welcome-text {
+    text-align: center;
+    padding-top: 10%;
+    color: #222222;
+    font-size: 1.3rem;
+    font-family: monospace;
+  }
 }
 
 *, *::after, *::before {
@@ -346,8 +368,9 @@ table {
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.3rem;
   margin-top: 30px;
+  font-family: monospace;
 }
 
 .dash {
@@ -482,6 +505,11 @@ table {
   .dash .items-list {
     font-size: .6rem;
   }
+  .dash .title {
+    font-size: 1.3rem;
+    margin-top: 30px;
+    font-family: monospace;
+  }
   .dash .main-charts {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -552,6 +580,11 @@ table {
     position: absolute;
     width: 100px;
     height: 100;
+  }
+  .dash .title {
+    font-size: 1rem;
+    margin-top: 30px;
+    font-family: monospace;
   }
 }
 

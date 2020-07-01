@@ -28,7 +28,7 @@ import {logoutUser} from '../redux/authReducer'
     )  
 
   } else {
-    return <p className="welcome-text">Welcome to Ivote <br/> login or register</p>
+    return <p className="welcome-text">Welcome to Ivote</p>
   }
 }
 

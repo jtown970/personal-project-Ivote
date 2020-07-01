@@ -6,9 +6,11 @@ $button-color: red;
 }
 
 .welcome-text {
-  padding-top: 5%;
+  text-align: center;
+  padding-top: 10%;
   color: rgb(34, 34, 34);
-  font-size: 1.3rem;
+  font-size: 3rem;
+  font-family: monospace;
 }
 .navigation {
   height: 50px;
@@ -57,4 +59,25 @@ $button-color: red;
     color: black;
   }
   
+}
+//tablet size
+@media (max-width: 800px){
+  .welcome-text {
+    text-align: center;
+    padding-top: 10%;
+    color: rgb(34, 34, 34);
+    font-size: 2.3rem;
+    font-family: monospace;
+  }
+}
+
+//phone size
+@media (max-width: 500px){
+  .welcome-text {
+    text-align: center;
+    padding-top: 10%;
+    color: rgb(34, 34, 34);
+    font-size: 1.3rem;
+    font-family: monospace;
+  }
 }
