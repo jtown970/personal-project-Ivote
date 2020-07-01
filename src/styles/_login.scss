@@ -59,3 +59,13 @@
     }
   }
 }
+
+.login-form {
+  @media (max-width: 500px){
+    .inner-form{
+      border: 1px solid black;
+      @include displayFlex(center, center, column);
+      width: 98vw;
+    }
+  }
+}

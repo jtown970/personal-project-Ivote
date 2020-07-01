@@ -143,6 +143,26 @@ table {
   }
 }
 
+@media (max-width: 500px) {
+  .login-form .inner-form {
+    border: 1px solid black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    width: 98vw;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -395,7 +415,7 @@ table {
 .main-charts .see-charts {
   height: 25px;
   width: 200px;
-  margin: 5px;
+  margin: 10px;
   padding: 1px;
   -webkit-box-shadow: 2px 3px 3px #00000049;
           box-shadow: 2px 3px 3px #00000049;
@@ -505,6 +525,33 @@ table {
     height: 500px;
     width: 700px;
     border: 1px solid black;
+  }
+}
+
+@media (max-width: 500px) {
+  .dash {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    width: 100vw;
+  }
+  .dash .items-list {
+    font-size: .6rem;
+  }
+  .dash .house-chart {
+    position: absolute;
+    width: 100px;
+    height: 100;
   }
 }
 

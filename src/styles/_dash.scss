@@ -30,11 +30,12 @@
 .main-charts {
   @include displayFlex(center, center, row);
   margin: auto;
+  // height: 90vh;
 
    .see-charts {
      height: 25px;
      width: 200px;
-     margin: 5px;
+     margin: 10px;
      padding: 1px;
      box-shadow: 2px 3px 3px #00000049;
      border-radius: 5px;
@@ -66,7 +67,7 @@
   border-radius: 5px;
 }
 
-// small screens 
+// tablets
 
 .dash{
   @media (max-width: 800px){
@@ -113,6 +114,26 @@
          border: 1px solid black;
        }
     }
+  }
+}
+
+// phones
+
+.dash{
+  @media (max-width: 500px){
+    @include displayFlex(center, center, column);
+    width: 100vw;
+    // margin-left: 20%;
+    .items-list{
+      font-size: .6rem;
+    }
+    .house-chart {
+      position: absolute;
+      width: 100px;
+      height: 100;
+    }
+
+
   }
 }
 
