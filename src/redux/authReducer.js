@@ -5,9 +5,9 @@ const initialState = {
   user: {},
   isLoggedIn: false,
   registering: false,
-  user_name: '',
-  password: '',
-  location: ''
+  // user_name: '',
+  // password: '',
+  // location: ''
 
 }
 
