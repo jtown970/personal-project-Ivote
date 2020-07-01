@@ -25,13 +25,13 @@ class HouseVotes extends Component {
         this.handleChart()
         this.getHouseRepVotes()
         this.getHouseRepVotesNo()
-        this.props.getUser()
         this.props.houseMembers()
         this.props.sumAllHouseYes()
         this.props.sumAllHouseNo()
         axios.get('/house/votes').then( res => {
             this.props.getHouse(res.data)
         })
+        this.props.getUser()
     }
 
     componentDidUpdate(prevProps, prevState){

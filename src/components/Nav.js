@@ -3,7 +3,7 @@ import '../styles/App.css';
 import {withRouter, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {logoutUser} from '../redux/authReducer'
-import {getUser} from '../redux/authReducer'
+// import {getUser} from '../redux/authReducer'
 
 
 
@@ -37,5 +37,5 @@ import {getUser} from '../redux/authReducer'
 // }
 
 const mapStateToProps = state => state
-const mapDispatchToProps = {logoutUser, getUser}
+const mapDispatchToProps = {logoutUser}
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav))

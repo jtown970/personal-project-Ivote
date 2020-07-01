@@ -21,9 +21,9 @@ class Dash extends Component {
     this.allItems = this.allItems.bind(this)
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.allItems()
-    this.props.getUser()
+    // this.props.getUser()
   }
 
   allItems(){
@@ -45,7 +45,7 @@ class Dash extends Component {
     const {item_id, users_id, vote_yes} = this.state;
     const {addUserVote} = this.props;
     addUserVote(item_id, users_id, vote_yes)
-    this.props.getUser()
+    // this.props.getUser()
     this.setState({
      castVote: !this.state.castVote
     })

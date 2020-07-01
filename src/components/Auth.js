@@ -63,9 +63,6 @@ import {registerUser} from '../redux/authReducer'
 
     const {user_name, password, location} = this.state;
     return (
-
-      
-
       <div className="login-form">
         <form onSubmit={(e) => this.login(e)} >
           <div className="inner-form">
